@@ -19,14 +19,17 @@ include_once("./board/lib/latest.lib.php");
 <meta property="og:url" content="http://hotelsuiteian.com/">
 
 <link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<link rel="stylesheet" type="text/css" href="css/swiper.css" />
 <link rel="stylesheet" type="text/css" href="css/reset.css" />
 <link rel="stylesheet" type="text/css" href="css/common.css" />
-<link rel="stylesheet" type="text/css" href="css/slide.css" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/swiper.js"></script>
 <script type="text/javascript" src="js/slide.js"></script>
-<script type="text/javascript" src="js/common.js"></script>	
+<script type="text/javascript" src="js/modify.js" defer></script>
+<script type="text/javascript" src="js/common.js" defer></script>	
 <script type="text/javascript" src="js/swp.js"></script>		
 
 <? include "analytics.html" ?>
@@ -39,133 +42,123 @@ include_once("./board/lib/latest.lib.php");
 	<!-- //header -->	
 	
 	<section>
-		<div class="section video">
-			<div class="MyFrame">
-				<video id="MyVideo" src="http://gonylabvid03.speedgabia.com/suiteian/main.mp4" autoplay loop muted height="100%"></video>
-			</div>
-			<h2><img src="images/idx_ttl.png" alt="" width="600" height="200" /></h2>
-			<div id="scroll"></div>
-		</div>
+		<div class="section visual">
+            <div class="Swipers">
+                <div class="swiper-view">
+                    <div class="InBox">
+                        <div class="swiper-container swiper">
+                            <div class="swiper-wrapper swiper-image">
+                            </div>
+                            <div class="swiper-button-next swiper-btn xi-angle-right-thin"></div>
+                            <div class="swiper-button-prev swiper-btn xi-angle-left-thin"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="visual_bg"></div> -->
+        </div>
 		
 		<div class="section offers" id="contents">
 		</div>
 
-
-
-		<div class="section landscape">
-			<div class="txt">
-				<h3><img src="images/idx_sec_03_ttl.png" alt="" width="500" height="150" /></h3>
-				<p>
-					뒤돌아도 우직하게 그 자리를 지켜온 자연은<br />
-					수많은 변화 속을 살아가는 우리에게 든든한 버팀목이 됩니다.<br />
-					호텔 스위티안은 그 우직함 속 따뜻한 위안이 되는 진실된 쉼의 공간이 되어 드리겠습니다.<br />
-					빠른 세상 속, 한걸음 쉬어 가며 기댈 곳이 필요한 당신을<br />
-					호텔 스위티안으로 초대합니다.
-				</p>
+		<div class="section list">
+			<h3>ABILITY IN SUITEIAN</h3>
+			<ul>
+				<li>
+					<div>
+						<div></div>
+						<strong>INFINITY POOL</strong>
+						<span>
+							<b>LIFE BEYOND EXPECTATIONS</b>
+							스위티안은 당신이 기대하는 모든 것,<br>
+							그 이상의 가치를 제공합니다. <br>
+							어느 곳에서도 경험하지 못할 <br>
+							최상의 퍼스널 서비스와 함께 럭셔리 스타일을 선보입니다.
+							<a href="#">자세히 보기</a>
+						</span>
+					</div>
+				</li>
+				<li>
+					<div>
+						<div></div>
+						<strong>SEMINAR</strong>
+						<span>
+							<b>LIFE BEYOND EXPECTATIONS</b>
+							스위티안은 당신이 기대하는 모든 것,<br>
+							그 이상의 가치를 제공합니다. <br>
+							어느 곳에서도 경험하지 못할 <br>
+							최상의 퍼스널 서비스와 함께 럭셔리 스타일을 선보입니다.
+							<a href="#">자세히 보기</a>
+						</span>
+					</div>
+				</li>
+				<li>
+					<div>
+						<div></div>
+						<strong>LOUNGE</strong>
+						<span>
+							<b>LIFE BEYOND EXPECTATIONS</b>
+							스위티안은 당신이 기대하는 모든 것,<br>
+							그 이상의 가치를 제공합니다. <br>
+							어느 곳에서도 경험하지 못할 <br>
+							최상의 퍼스널 서비스와 함께 럭셔리 스타일을 선보입니다.
+							<a href="#">자세히 보기</a>
+						</span>
+					</div>
+				</li>
+				<li>
+					<div>
+						<div></div>
+						<strong>JACUZZI BATH</strong>
+						<span>
+							<b>LIFE BEYOND EXPECTATIONS</b>
+							스위티안은 당신이 기대하는 모든 것,<br>
+							그 이상의 가치를 제공합니다. <br>
+							어느 곳에서도 경험하지 못할 <br>
+							최상의 퍼스널 서비스와 함께 럭셔리 스타일을 선보입니다.
+							<a href="#">자세히 보기</a>
+						</span>
+					</div>
+				</li>
+			</ul>
+			<div class="img">
+				<div class="i01"></div>
+				<div class="i02"></div>
+				<div class="i03"></div>
+				<div class="i04"></div>
 			</div>
 		</div>
 
-		<div class="section special">
-			<div class="s01">
-				<div class="txt">
-					<div class="InBox">
-						<h3>INFINITY POOL</h3>
-						<p>
-							스위티안을 이용한다면 누구나 사용할 수<br />
-							있는 리버사이드 인피니티풀
-						</p>
-						<a href="facility.html?num=01" class="btn">
-							<div class="back"></div>
-							<div class="mask">
-								<div>
-									<span>VIEW DETAIL</span>
-									<span>VIEW DETAIL</span>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="img">
-					<img src="http://gonylab4.speedgabia.com/suiteians/main/sp/1.jpg" alt="" width="100%" height="auto" />
-				</div>
-			</div>
-			
-			<div class="s02">
-				<div class="img">
-					<img src="http://gonylab4.speedgabia.com/suiteians/main/sp/2.jpg" alt="" width="100%" height="auto" />
-				</div>
-				
-				<div class="txt">
-					<div class="InBox">
-						<h3>RESTAURANT</h3>
-						<p>
-							특별한 순간을 더욱 다채롭게<br />
-							고품격 리버뷰 이탈리안 레스토랑&amp;카페
-						</p>
-						<a href="food.html" class="btn">
-							<div class="back"></div>
-							<div class="mask">
-								<div>
-									<span>VIEW DETAIL</span>
-									<span>VIEW DETAIL</span>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="s03">
-				<div class="txt">
-					<div class="InBox">
-						<h3>GARDEN TERRACE&amp;SPA</h3>
-						<p>
-							가든테라스 및 스파 객실은<br />
-							이용하시는 동안 언제든지 <br />
-							프라이빗 테라스 OR 스파 이용 가능
-						</p>
-					</div>
-				</div>
-				<div class="img">
-					<img src="http://gonylab4.speedgabia.com/suiteians/main/sp/3.jpg" alt="" width="100%" height="auto" />
-				</div>
-			</div>
-		</div>
-		
-		
-		<div class="section slides" id="slides">
-			
-			<div class="slide slide_02">
-				<ul class="slide_show"></ul>
-			</div>
-			
+		<div class="section restaurant" id="restaurant">
+			<h3><strong>스위티안 레스토랑</strong><span>High Quality River View Italian Restaurant</span></h3>
+			<div class="Swipers">
+                <div class="swiper-view">
+                    <div class="InBox">
+                        <div class="swiper-container swiper4">
+                            <div class="swiper-wrapper swiper-image">
+                            </div>
+                            
+                            <div class="swiper-button-next swiper-btn"></div>
+                            <div class="swiper-pagination"></div>
+							<a href="#" class="plays"><img src="/pop/images/wait.png" alt="" width="54" height="50" /></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 		</div>
 
-		<div class="section restaurant">
-			<div class="txt">
+		<div class="section video">
+			<div class="ttl">
 				<h3>
-					<span>Italian Style Premium Restaurant</span>
-					<strong>SUITEIAN RESTAURANT</strong>
+					<strong>품격있는 스위티안 호텔</strong>
+					<span>Pleasure and Comfort Stay</span>
 				</h3>
-				<a href="food.html" class="btn">
-					<div class="back"></div>
-					<div class="mask">
-						<div>
-							<span>VIEW DETAIL</span>
-							<span>VIEW DETAIL</span>
-						</div>
-					</div>
-				</a>
 			</div>
-			<div class="InBox">
-				<ul>
-					<li class="r01"><a href="#"><div></div></a></li>
-					<li class="r02"><a href="#"><div></div></a></li>
-					<li class="r03"><a href="#"><div></div></a></li>
-					<li class="r04"><a href="#"><div></div></a></li>
-				</ul>
-			</div>
+			<iframe id="iframe" src="https://player.vimeo.com/video/472898904" width="" height="" frameborder="0" allowfullscreen=""></iframe>	
+			<div class="bg"></div>
 		</div>
-	
 	</section>
 	<!-- footer -->
 	<? include "footer.html" ?>

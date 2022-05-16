@@ -1,5 +1,5 @@
 document.write('<script type="text/javascript" src="js/reserve.js"></script>');	// 함수 리스트 호출
-document.write('<script type="text/javascript" src="js/modify.js"></script>');		// 함수 리스트 호출
+document.write('<script type="text/javascript" src="js/modify.js" defer></script>');		// 함수 리스트 호출
 document.write('<script type="text/javascript" src="js/swipe.js"></script>');		// 함수 리스트 호출
 document.write(
 "<!--[if lte IE 9]>"
@@ -27,6 +27,8 @@ var val = num.slice(0, 2); val = val - 1;
 var m = location.href.substr(location.href.lastIndexOf('=') + 1);			//해당페이지 영역
 var v = m.slice(0, 2); v = (v - 1) + 1;	
 var k = val;
+let path = (location.href.substr(location.href.lastIndexOf("/") + 1)).split(".")[0]; 	//path
+
 
 /*---------------------------------------------------------------*/	
 //header
@@ -49,11 +51,27 @@ $("#lnb, #IdxMenu, header > nav").mouseleave(function(){
 	$("header > nav").css({"height":"0"});
 });
 
+function Swipers4(value, view, center, Between, boolean){
+	var popup = new Swiper(' .swiper4', {
+		pagination: '#index .restaurant .swiper-pagination', 
+		nextButton: '#index .restaurant .swiper-button-next',
+		// prevButton: '#popup .swiper4 .swiper-button-next', 
+		slidesPerView: 1, 
+		paginationClickable: true, 
+		spaceBetween: 10,	
+		loop: true,
+		// autoplay: 3000,
+		autoplayDisableOnInteraction: true,
+	});
+}
+
 
 
 /*---------------------------------------------------------------*/
-//body
-if($("body").is("#index") == true){
+switch(path){
+	//index Page
+	case '' :
+	case 'index' :
 	
 	//offers
 	var special = new Swiper('.swiper',{
@@ -62,150 +80,73 @@ if($("body").is("#index") == true){
 		prevButton:'.swiper-button-prev',
 		//loop:true,
 	});
-	
-	for(var a = 0; a < img[0]; a++){
-		$(".slide_02 .slide_show").append(
-			'<li id="i' + numbering(a) + '">' + 
-			'<div style="background:url('+ url +'/main/'+ (a + 1) + '.jpg)'+ 
-			' no-repeat 50% 50%;background-size:cover;"></div>' + 
-			'</li>' 
+
+	for(var i = 0; i < img[0]; i++){
+		$(".visual .Swipers .swiper-image").append(
+			'<div class="swiper-slide">' + 
+				'<div style="background-image:url(' + url +'/main/'+  (i + 1) + '.jpg)"></div>' + 
+			'</div>'
 		);
-	} slide_02("slides","slide_show > li");
+	} Swipers(".visual", 1, true, 0, false);
+
+	for(var i = 0; i < img[0]; i++){
+		$(".restaurant .swiper4 .swiper-image").append(
+			'<div class="swiper-slide">' + 
+				'<div style="background-image:url(' + url +'/main/'+  (i + 1) + '.jpg)"></div>' + 
+			'</div>'
+		);
+	} Swipers4(".restaurant", 1, true, 50, false);
+
 	
-	$(".restaurant ul li").each(function(e){ $(this).css("top",(15 * e)+ "%"); });
+
+	$(".plays").click(function(){
+		if($(this).find("img").is(".on") == true){
+		   $(".plays img").removeClass("on");
+		   $(".plays img").attr("src","/pop/images/wait.png");
+		   popup.startAutoplay();	
+		}else{
+		   $(this).find("img").addClass("on");
+		   $(".plays img").attr("src","/pop/images/play.png");
+		   popup.stopAutoplay();	
+		}
+	   return false;	
+   });
+
+   $(".restaurant .swiper4 .swiper-image .swiper-slide").eq(1).append(
+	   '<div class="title"><span>고객님을 위한 이벤트가 가득한 <br>스위티안 레스토랑에서 다양한 혜택을 즐기세요.</span><a href="#">이벤트 보기</a></div>'
+   );
+
+   
+
+	$('.list ul li > div').hover(
+		function () {
+			var a = $(this).parent('li').index();
+			$('.list .img div').css({ opacity: '0', 'z-index': '0' });
+			$('.list .img div').css({ opacity: '0', 'z-index': '0' });
+			$('.list .img div').eq(a).css({ opacity: '1', transition: '1s', 'z-index': '1' });
+			$('.list ul li div div').eq(a).css({ opacity: '1' });
+		},
+		function () {
+			$('.list .img div').css({ opacity: '0', transition: '1s', 'z-index': '0' });
+			$('.list ul li div div').css({ opacity: '0.5' });
+		}
+	);
+
+	$("#index .list .img").css("height",$("#index .list .img").width() / 16 * 9);
+	
+	$(window).on("resize", function() {
+		$("#index .list .img").css("height",$("#index .list .img").width() / 16 * 9);	
+	});
+
+	var iwh = (1400 / 16) * 9;
+	if (dwh < 1001) $(".video #iframe").css({ width: "950px", height: "534px" });
+	else $(".video #iframe").css({ width: "1400px", height: iwh });
 			
-	$(window).on("scroll",function(e){
-		var d = $(window).scrollTop();
-		var e = $(".landscape").offset().top - ($(".landscape").height() / 2);
-		var f = $(".special > div").eq(0).offset().top - $(".special > div").height();
-		var g = $(".special > div").eq(1).offset().top - $(".special > div").height();
-		var h = $(".special > div").eq(2).offset().top - $(".special > div").height();
-		var i = $(".restaurant").offset().top - ($(".restaurant").height() / 2);
-	
-		if(d > e){
-			$(".landscape .txt h3").css({"top":"0","opacity":"1"});
-			$(".landscape .txt p").css({"top":"0","opacity":"1"});
-		}else{
-			$(".landscape .txt h3").css({"top":"-50px","opacity":"0"});
-			$(".landscape .txt p").css({"top":"50px","opacity":"0"});
-		}
-
-		if(d > f){
-			$(".special > div").eq(0).find(".txt").css({"left":"0%","opacity":"1"});
-			$(".special > div").eq(0).find(".img").css({"right":"0%","opacity":"1"});
-		}else{
-			$(".special > div").eq(0).find(".txt").css({"left":"-5%","opacity":"0"});
-			$(".special > div").eq(0).find(".img").css({"right":"-5%","opacity":"0"});
-		}
-		
-		if(d > g){
-			$(".special > div").eq(1).find(".txt").css({"right":"0%","opacity":"1"});
-			$(".special > div").eq(1).find(".img").css({"left":"0%","opacity":"1"});
-		}else{
-			$(".special > div").eq(1).find(".txt").css({"right":"-5%","opacity":"0"});
-			$(".special > div").eq(1).find(".img").css({"left":"-5%","opacity":"0"});
-		}
-		
-		if(d > h){
-			$(".special > div").eq(2).find(".txt").css({"left":"0%","opacity":"1"});
-			$(".special > div").eq(2).find(".img").css({"right":"0%","opacity":"1"});
-		}else{
-			$(".special > div").eq(2).find(".txt").css({"left":"-5%","opacity":"0"});
-			$(".special > div").eq(2).find(".img").css({"right":"-5%","opacity":"0"});
-		}
-
-		if(d > i){
-			$(".restaurant ul li").eq(0).css({"top":"0","transition":"0.5s","opacity":"1"});
-			$(".restaurant ul li").eq(1).css({"top":"0","transition":"1.0s","opacity":"1"});
-			$(".restaurant ul li").eq(2).css({"top":"0","transition":"1.5s","opacity":"1"});
-			$(".restaurant ul li").eq(3).css({"top":"0","transition":"2.0s","opacity":"1"});
-		}else{
-			$(".restaurant ul li").eq(0).css({"top":"15%","transition":"0.5s","opacity":"0"});
-			$(".restaurant ul li").eq(1).css({"top":"30%","transition":"0.5s","opacity":"0"});
-			$(".restaurant ul li").eq(2).css({"top":"45%","transition":"0.5s","opacity":"0"});
-			$(".restaurant ul li").eq(3).css({"top":"60%","transition":"0.5s","opacity":"0"});
-		}
-		return false;
-	});
-
-	$(".special > div").each(function(e){
-		
-		if(e%2 == 1) {
-			$(this).find(".txt").css("text-align","right");
-			$(this).find(".txt a.btn").css("float","right");
-			
-			$(this).find(" > .txt").css("right","-5%");
-			$(this).find(" > .img").css("left","-5%");
-			
-		}else{
-			$(this).find(" > .txt").css("left","-5%");
-			$(this).find(" > .img").css("right","-5%");
-		}
-
-	});
-
+ 	break;
 
 	
-	
-
-
-/*---------------------------------------------------------------*/
-}else if($("body").is("#video") == true){
-	$("#banner").prepend('<h2><img src="images/vid_ttl_01.png" alt="" width="450" height="150" /></h2>');
-	
-	var a = $('.InnerBox > div').width() / 16 * 9;
-	$("iframe").css("height",a);
-	
-	$(window).on("resize",function(){
-		var a = $('.InnerBox > div').width() / 16 * 9;
-		$("iframe").css("height",a);	
-	});
-	
-
-/*---------------------------------------------------------------*/
-}else if($("body").is("#location") == true){
-	$.getJSON('http://digitalnow.co.kr/reserve/pensionInfo/'+ rv_ttl +'/4',
-	function(data){
-	
-		$("#banner").prepend('<h2><img src="images/location_ttl_01.png" alt="" width="450" height="150" /></h2>');
-		
-		for(var a = 0; a < img[1]; a++){
-			$(".slide_01 .slide_show").append(
-				'<li id="i' + numbering(a) + '" style="background:url('+ url +'/location/'+ (a + 1) +'.jpg)'+ 
-				' no-repeat 50% 50%;background-size:cover;"></li>' 
-			);
-		}
-		
-		slide_01("slide_01","slide_show > li");
-		
-		$(".location .txt > p").eq(0).append("<span>" + data.result.NEW_USER_ADDR +  "</span>"); //'<br />' + data.result.USER_ADDR +
-		$(".location .txt > p").eq(1).append("<span>"+ data.result.USER_TEL1 +"</span>");
-		
-	});
-	
-	$.getJSON('http://digitalnow.co.kr/reserve/pensionInfo/'+ rv_ttl +'/10',
-	function(data){
-		let i = 0;
-		$(".travel").append("<ul></ul>");
-		$.each(data.result,function(key,val){
-			for (let j = 0; j < data.result.length; j++) {
-				if (Number(data.result[j]["ORDER_NUM"]) - 1 === i) {
-					$(".travel ul").append(
-						'<li>' +
-							'<img src="images/travel/'+ (i + 1) +'.jpg" alt="" width="100%" height="auto" />' +
-							'<strong>' + data.result[j]["TITLE"] + '</strong>' +
-							'<em>' + data.result[j]["DISTANCE"] + '</em>' +
-							'<span>'+ data.result[j]["CONTENT"] +'</span>' +
-						'</li>'
-					);
-				}
-			}
-			i++;
-		});
-	});
-
-/*---------------------------------------------------------------*/
-}else if($("body").is("#rooms") == true){
+	//rooms Page
+	case 'rooms' :
 
 	
 	$.getJSON('http://digitalnow.co.kr/reserve/pensionInfo/'+ rv_ttl +'/8',
@@ -314,9 +255,9 @@ if($("body").is("#index") == true){
 
 	});
 
-
+break;
 /*---------------------------------------------------------------*/
-}else if($("body").is("#fpv") == true){
+case 'fpv' :
 
 	$.getJSON('http://digitalnow.co.kr/reserve/pensionInfo/'+ rv_ttl +'/12',
 	function(data){
@@ -420,9 +361,10 @@ if($("body").is("#index") == true){
 	
 	});
 	
-
+break;
 /*---------------------------------------------------------------*/
-}else if($("body").is("#facility") == true){
+	//rooms Page
+	case 'facility' :
 	
 	$("body").addClass("facil_" + m);
 	var z = v - 1;
@@ -492,9 +434,11 @@ if($("body").is("#index") == true){
 			);
 		} slide_02("slides","slide_show > li");
 	});
+	break;
 
 /*---------------------------------------------------------------*/
-}else if($("body").is("#food") == true){
+	//rooms Page
+	case 'food' :
 	
 	//$("body").addClass("_" + m);
 	//var z = v - 1;
@@ -583,9 +527,10 @@ if($("body").is("#index") == true){
 		slide_02("slides","slide_show > li");
 	
 	});
-
+	break;
 /*---------------------------------------------------------------*/
-}else if($("body").is("#reserve") == true){
+	//rooms Page
+	case 'reserve' :
 	
 	$("#banner").prepend('<h2><img src="images/rev_ttl_01.png" alt="" width="450" height="150" /></h2>');
 	
@@ -601,9 +546,10 @@ if($("body").is("#index") == true){
 		}return false;
 	});
 	reserInfo(rv_ttl);
-
+break;
 /*---------------------------------------------------------------*/
-}else if($("body").is("#offers") == true){
+	//rooms Page
+	case 'offers' :
 
 	$("#banner").prepend('<h2><img src="images/off_ttl_01.png" alt="" width="450" height="150" /></h2>');
 
@@ -619,10 +565,11 @@ if($("body").is("#index") == true){
 		return false;
 	});
 
-
+break;
 
 /*---------------------------------------------------------------*/
-}else if($("body").is("#community") == true){
+	//rooms Page
+	case 'community' :
 	
 	$("#banner").prepend('<h2><img src="images/com_ttl_01.png" alt="" width="450" height="150" /></h2>');
 	
@@ -643,62 +590,12 @@ if($("body").is("#index") == true){
 		}
 		return false;
 	});
-	
-}else if($("body").is("#index3") == true){
+	break;
 
-	// for(var i=0; i < img[0]; i++){
-	// for(var i=0; i < 2; i++){
-	// 	$(".Swipers .swiper-wrapper").append(
-	// 		'<div class="swiper-slide">' + 
-	// 			// '<div style="background-image:url('+ url +'/main/'+ (i + 1) +'.jpg)">' + 
-	// 			'<a href="" style="background-image:url(/images/slide_0'+ (i + 1) +'.jpg)">' + 
-	// 		'</a>'
-	// 	);
-	// } 
-	Swipers(".Swipers", 1, true, 0, true);
-
-	var detailItemWidth = document.querySelector('.details .item:first-child').clientWidth;
-	$('.details .item').height(detailItemWidth);
-
-	$(window).on('resize', function() {
-		detailItemWidth = document.querySelector('.details .item:first-child').clientWidth;
-		$('.details .item').height(detailItemWidth);
-	});
-
-	function Swipers(value, view, center, Between, boolean){
-		var swiper = new Swiper(value + ' .swiper', {
-			paginationClickable: true,
-			nextButton: value + ' .swiper-button-next',
-			prevButton: value + ' .swiper-button-prev',
-			pagination: value + ' .swiper-pagination',
-			slidesPerView: view,
-			centeredSlides: center,
-			spaceBetween: Between,
-			loop: boolean,
-			onSlideChangeStart: function (swiper) {
-				let curr = swiper.activeIndex + 1;
-			},
-		});
-	}
-
-	$("#index3 .details .item1").on("click",function(){
-		var a = $(window).scrollTop();
-		var b = $("#contents").offset() && $("#contents").offset().top - 20;
-				
-		$("#preview").css("right",0); 	
-		$("html,body").css("overflow","hidden");
-		$("html").addClass("on");
-		$("header").removeClass("on");
-		if(a < b) { 
-			if( $("section > div").eq(0).is(".video") == true ) {
-				video.pause();
-			}
-		}
-		
-		return false;	
-	});
+	//None Page
+	default : location.href = "index.html";
+	break;
 }
-
 
 /*---------------------------------------------------------------*/	
 //video
@@ -797,3 +694,19 @@ function numbering(n) { // 이미지 넘버링 10 보다 작을때
 	if (n.length < 2){for (var i = 0; i < 2 - n.length; i++){num += '0';}}
 	return num + n;
 }
+
+function Swipers(value, view, center, Between, boolean){
+	var swiper = new Swiper(value + ' .swiper', {
+		paginationClickable: true,
+		nextButton: '.swiper-button-next',
+		prevButton: '.swiper-button-prev',
+		pagination: '.swiper-pagination',
+		slidesPerView: view,
+		centeredSlides: center,
+		spaceBetween: Between,
+		loop: boolean
+	});
+}
+
+
+

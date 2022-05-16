@@ -22,6 +22,8 @@ section .section .txt a div.mask div span	{transition:transform 0.5s cubic-bezie
 		
 section .section .txt a:hover div.back 		{top:100%;}
 section .section .txt a:hover div.mask span	{transform: translateY(-100%)}
+.visual {width:100%; height:100vh; position:relative; z-index:1;}
+
 
 .sub #banner 							    {height:85vh;min-height:562px;overflow:hidden;}	
 .sub #banner:before 						{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.2;background:#000;content:"";}
@@ -63,7 +65,7 @@ section .section .txt a:hover div.mask span	{transform: translateY(-100%)}
 .slide_02 .slide_show 					    {position:relative;width:100%;height:100%;overflow:visible!important;}
 .slide_02 .slide_show li					{position:absolute;top:0;left:0;width:100%;height:100%;}
 .slide_02 .slide_show li div 				{position:absolute;top:0;left:0;width:100%;height:100%;}
-.slide_02 .slide_show li div 				{transform: scale(0.97);}
+.slide_02 .slide_show li div 				{transform: scale(0.9);}
 .slide_02 .slide_show li div 				{transition: 0.5s;}
 .slide_02 .slide_show li div:before 		{background:#f4f4f4;position:absolute;left:0;top:0;width:100%;height:100%;content:"";opacity:0.7;}
 .slide_02 .slide_show li div:before 		{transition:all 0.5s;}
@@ -75,15 +77,39 @@ section .section .txt a:hover div.mask span	{transform: translateY(-100%)}
 .slide_02 #nav > a.prev					    {left:1px;}
 .slide_02 #nav > a.next					    {right:1px;}
 .slide_02 #nav > a:hover					{opacity:0.85;}
+.slide_02 #nav > ul 						{position:absolute;left:3.5%;bottom:35px;overflow:hidden;z-index:350;}
+.slide_02 #nav > ul li 					    {float:left;width:21px;}
+.slide_02 #nav > ul li a 					{width:17px;height:17px;display:block;margin:0 auto;background:url(../images/off.png) no-repeat 0 0;}
+.slide_02 #nav > ul li a.active 			{background:url(../images/on.png) no-repeat 0 0;}
+
+.Swipers {max-width:100%!important;overflow:hidden;}	
+.Swipers .InBox {height:100vh;min-height:560px;}
+.Swipers .swiper-container {height:100%;}
+.Swipers .swiper-slide > div {width:100%;height:100%;transition:1s;opacity:0.2;}
+.Swipers .swiper-slide > div {background-position:50% 50%;background-repeat:no-repeat;background-size:cover;}
+.Swipers .swiper-slide-active > div {transition:1s;opacity:1;}
+.Swipers .swiper-slide .visual_bg {position: absolute; top:0; left:0; width:100%; height:100%; opacity:1; z-index:1000;}
+
+.Swipers .swiper-btns {position:absolute; left:1px; bottom:0; width:250px; height:132px;}
+.Swipers .swiper-btn {position:absolute; bottom:0; color:#fff; font-size:75px; z-index:10; cursor:pointer;}
+.Swipers .swiper-btn {background-size:contain; background-position:center; background-repeat:no-repeat;}
+.Swipers .swiper-pagination {bottom:60px; left:50%; width:auto; transform:translateX(-50%);}
+.Swipers .swiper-button-prev {background-image:url(../images/prev.png); left:2%; top:50%; transform:translateY(-50%);}
+.Swipers .swiper-button-next {background-image:url(../images/next.png); right:2%; top:50%; transform:translateY(-50%)}
+.Swipers .swiper-pagination-bullet {width:35px; height:19px; display:inline-block;}
+.Swipers .swiper-pagination-bullet {background:url(../images/off.png) no-repeat left top;}
+.Swipers .swiper-pagination-bullet {transition: transform 0.3s ease;}
+.Swipers .swiper-pagination-bullet-active {background:url(../images/on.png) no-repeat left top;}
 	
 
 /*------------------------------------------------------------------------------------------------*/
 /* Images */
-#index .landscape 						{background:url(http://gonylab4.speedgabia.com/suiteians/main/location.jpg) no-repeat 50% 50%;background-size:cover;}
+#index .list .img {background:url(http://gonylab4.speedgabia.com/suiteians/main/location.jpg) no-repeat 50% 50%;background-size:cover;}
 .restaurant .r01 a div 					{background:url(http://gonylab4.speedgabia.com/suiteians/main/foods/1.jpg) no-repeat 50% 50%;background-size:cover;}
 .restaurant .r02 a div 					{background:url(http://gonylab4.speedgabia.com/suiteians/main/foods/2.jpg) no-repeat 50% 50%;background-size:cover;}
 .restaurant .r03 a div 					{background:url(http://gonylab4.speedgabia.com/suiteians/main/foods/3.jpg) no-repeat 50% 50%;background-size:cover;}
 .restaurant .r04 a div 					{background:url(http://gonylab4.speedgabia.com/suiteians/main/foods/4.jpg) no-repeat 50% 50%;background-size:cover;}
+
 
 #video #banner 							{background:url(http://gonylab4.speedgabia.com/suiteians/banner/1.jpg) no-repeat 50% 50%;background-size:cover;}
 #location #banner 						{background:url(http://gonylab4.speedgabia.com/suiteians/banner/1.jpg) no-repeat 50% 50%;background-size:cover;}
@@ -113,7 +139,7 @@ section .section .txt a:hover div.mask span	{transform: translateY(-100%)}
 /*------------------------------------------------------------------------------------------------*/
 /* Header */
 /* header - default */
-header                                              {position:fixed;top:0;left:0;width:100%;min-width:1000px;z-index:100;}
+header                                              {position:fixed;top:0;left:0;width:100%;min-width:1000px;z-index:500;}
 hgroup                                              {position:relative;width:100%;height:75px;background:#fff;border-bottom:1px solid #e8e8e8;overflow:visible;}
 hgroup #lnb                                         {float:left;width:60%;min-width:580px;height:75px;}
 hgroup #lnb .InBox                                  {width:100%;height:75px;overflow:visible;}
@@ -141,27 +167,32 @@ nav > div .menus img                                {width:287px;height:186px;fl
 nav > div .menus div > ul                               {float:left;position:relative;top:-5px;}
 nav > div .menus div > ul                               {padding-left:5%;}
 nav > div .menus div > ul li                            {line-height:1.3;padding-bottom:13px;}
-nav > div .menus div > ul li a                          {display:block;padding-top:7px;overflow:hidden;}
+nav > div .menus div > ul li a                          {display:block;overflow:hidden;}
 nav > div .menus div > ul li a span                     {display:block; line-height:1.5;}
 nav > div .menus div > ul li a span.en                  {width:190px;font-size:16px; color:#9c836a;}
 nav > div .menus div > ul li a span.ko                  {color:#9b9b9b;font-size:16px; margin-top:15px;}
 nav > div .menus div > ul li a:hover span.en            {color:#5f8caf;}
 nav > div .menus div > ul li a:hover span.ko            {color:#000;}
-nav > div .menus div > .InBox                           {float:left;width:45%;margin-right:1%;overflow:hidden;}
-nav > div .menus div > .InBox img                       {width:50%;max-width:217px;}
-nav > div .menus div > .InBox > div                     {float:left;margin-left:5%;width:45%;}
-nav > div .menus div > .InBox > div strong              {font-size:18px;margin:3% 0 5%;font-weight:bold;display:block;}
-nav > div .menus div > .InBox > div ul li               {line-height:1.3;}
-nav > div .menus div > .InBox > div ul li a             {padding:7px 0;}
-nav > div .menus div > .InBox > div li a span           {color:#9b9b9b;font-size:15px;transition:0.3s;}
-nav > div .menus div > .InBox > div li a span.ko        {display:none;padding:0.5px 0;}	
-nav > div .menus div > .InBox > div li:hover a span.en  {display:none;}
-nav > div .menus div > .InBox > div li:hover a span.ko  {display:block;color:#5f8caf;}
+nav > div .menus div h3 {display: block; width:fit-content;}
+nav > div .menus div h3 strong {display: block; font-size:16px; margin-bottom:20px; font-weight:bold;}
+nav > div .menus div h3 span {display: block; font-size:12px; margin-bottom:10px; color:#9c836a;}
 nav > .gb02 .menus > ul li a span.en                {width:300px;}
+
+nav > div .menus div {width:90%;}
+nav > div .menus div h3 {display: block; float:left;}
+nav > div .menus div h3 ul li a:first-of-type {padding-top:0;}
+
+nav > .gb02 .menus {width:100%; display:flex;}
+nav > .gb02 .menus .room_menu {width:16.6666%; flex:1;}
+nav > .gb02 .menus .room_menu h3 {display: block; width:fit-content; float:none;}
+nav > .gb02 .menus .room_menu h3 strong {display: block; font-size:16px; margin-bottom:20px; font-weight:bold;}
+nav > .gb02 .menus .room_menu h3 span {display: block; font-size:12px; margin-bottom:10px; color:#9c836a;}
+nav > .gb02 .menus .room_menu ul {padding-left:0;}
+nav > .gb02 .menus .room_menu ul a span.en {color:#000; font-size:14px;}
 		
 
 /* Feader */
-footer 									    {min-width:calc(1000px - 140px);padding-left:140px;width:calc(100% - 140px);z-index:1000;}
+footer 									    {width:100%; z-index:1000;}
 footer > div 							    {position:relative;background:#8d857b;float:left;padding:3.5% 0;height:200px;}
 footer > div.ft_lt 						    {width:30%;}
 footer > div.ft_lt h1 					    {width:143px;margin:0 auto;}
@@ -190,9 +221,8 @@ header a,footer a 						    {display:block;}
 
 /*------------------------------------------------------------------------------------------------*/
 /* Index */
-#index .section {padding-top:7.5%;}
-#index .video {padding:0;}	
-#index .video h2 {position:absolute;top:50%;left:50%;margin:-50px 0 0 -300px;z-index:10;}
+#index .section {margin-top:5.5%;}
+#index .section:first-child {padding-top:0; margin-top:0;}
 
 #index .offers h3 {font-size:36px;font-family:athelas,serif;color:#696969;margin-bottom:2.5%;letter-spacing:0.5px;}
 #index .offers > div {max-width:1300px;min-width:800px;margin:0 auto;}
@@ -210,35 +240,54 @@ header a,footer a 						    {display:block;}
 #index .offers .InBox .swiper a .txt span {font-size:0.9vw;display:block;color:#838383;}
 #index .offers .InBox .swiper a .txt em {display:block;font-size:0.8vw;font-weight:bold;margin-top:5%;}
 
-#index .landscape {height:90vh;min-height:562px;}
-#index .landscape:before {position:absolute;top:0;left:0;width:100%;height:100%;background:#000;opacity:0.4;content:"";}
-#index .landscape .txt {position:absolute;top:50%;right:calc(3% + 80px);z-index:1;margin-top:-150px;text-align:right;}
-#index .landscape .txt h3 {position:relative;top:-50px;transition:0.5s ease-in-out;opacity:0;}
-#index .landscape .txt p {color:#fff;font-size:15px;line-height:1.7;margin-top:5%;position:relative;top:50px;transition:0.5s  ease-in-out;opacity:0;}
+#index .list::after {content:""; position: absolute; left:0; top:0; width:100%; height:100%; background-color:#000; opacity:0.5;}
+#index .list h3 {position: absolute; top:250px; left:7%; transform:translateX(-7%); z-index:50; font-size:50px; color:#fff;}
+#index .list .img {position:relative;width:100%;height:100%;}
+#index .list .img div {position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;opacity:0;}
+#index .list .img div:before {position:absolute;left:0;top:0;width:100%;height:100%;content:"";background:#000;opacity:0.3;}
+#index .list ul {position:absolute;width:100%;height:100%;overflow:hidden;z-index:2;}
+#index .list ul li {position:relative;float:left;width:25%;height:100%;}
+#index .list ul li > div {position:absolute;top:50%;left:10%; transform:translateX(10%); width:100%;height:100%;margin-top:-100px;text-align:left;display:block;overflow:hidden;}
+#index .list ul li div strong {font-size:25px;font-family:linotype-didot;display:block;color:#fff;margin-top:50px;transition: 0.5s;}
+#index .list ul li div div {width:80px;height:1px;background:#fff; opacity:0.5; width:300px;}
+#index .list ul li div span {font-size:15px;line-height:1.8;display:block;color:#fff;opacity:0;transition: 0.5s;}
+#index .list ul li div span b {display:block; margin:50px 0 25px;}
+#index .list ul li div span a {display:block; color:#fff; width:fit-content; font-size:14px; border:1px solid #fff; padding:5px 25px; margin-top:25px;}
 
-#index .special > div {margin-bottom:3%;height:100%;overflow:hidden;}
-#index .special > div > div {position:relative;height:100%;float:left;overflow:hidden;transition:0.7s ease-in-out;opacity:0;}
-#index .special > div > div.txt {width:30%;}
-#index .special > div > div.txt > div {max-width:300px;min-width:200px;max-height:300px;min-height:200px;margin:calc(50% - 50px) auto 0;}
-#index .special > div > div.txt > div h3 {font-family:athelas,serif;font-size:30px;font-weight:bold;letter-spacing:-0.5px;}
-#index .special > div > div.txt > div p {font-size:0.9vw;line-height:1.5;padding:8.5% 0;width:100%;}
+#index .list ul li div:hover strong {font-size:25px; margin:15px 0;}
+#index .list ul li div:hover div {opacity:1;}
+#index .list ul li div:hover span {opacity:1;}
 
-#index .special > div > div.img {width:70%;}
-#index .special > div > div.img img {display:block;transform: scale(1);transition:0.5s;}
+#index .list .img .i01	{background:url(http://gonylab4.speedgabia.com/suiteians/main/1.jpg) no-repeat 50% 50%;background-size:cover;}
+#index .list .img .i02	{background:url(http://gonylab4.speedgabia.com/suiteians/main/2.jpg) no-repeat 50% 50%;background-size:cover;}
+#index .list .img .i03	{background:url(http://gonylab4.speedgabia.com/suiteians/main/3.jpg) no-repeat 50% 50%;background-size:cover;}
+#index .list .img .i04	{background:url(http://gonylab4.speedgabia.com/suiteians/main/4.jpg) no-repeat 50% 50%;background-size:cover;}
 
-#index .restaurant .txt h3 {text-align:center;}
-#index .restaurant .txt h3 span {display:block;font-size:16px;font-family:athelas,serif;}
-#index .restaurant .txt h3 strong {display:block;font-size:38px;font-family:athelas,serif;letter-spacing:1px;padding:0.5% 0 2.5%;}
-#index .restaurant .txt a.btn {max-width:250px;min-width:200px;margin:0 auto;}
+#index .restaurant {position:relative;width:100%;height:100%;overflow:hidden;min-width:860px;min-height:483px;}
+#index .restaurant h3 {display: block; text-align: center;}
+#index .restaurant h3 strong {display: block; font-size:50px;}
+#index .restaurant h3 span {display: block; font-size:17px; margin:25px 0 40px;}
+#index .restaurant .swiper-view {max-width:1400px; margin:0 auto;}
+#index .restaurant .swiper-view .InBox {height:80vh;}
+#index .restaurant .swiper-container .swiper-wrapper .swiper-slide {transform: scale(0.9); transition: all 0.5s}
+#index .restaurant .swiper-container .swiper-wrapper .swiper-slide-active {transform: scale(1); transition: all 0.5s}
+#index .restaurant .swiper-container .plays {position:absolute;top:0;right:56px;height:50px;display:block; background-color: #000; z-index:50;}
+#index .restaurant .swiper-container .swiper-pagination {width:fit-content; left:50%;}
+#index .restaurant .swiper-container .swiper-pagination .swiper-pagination-bullet {width:13px; height:13px; background-color:#fff; border-radius:10px; margin:0 3px;}
+#index .restaurant .swiper-container .swiper-pagination .swiper-pagination-bullet-active {background-color:transparent; border:1px solid #fff; margin-bottom:-1px;} 
+#index .restaurant .swiper-container .title {position: absolute; top:50%; transform:translateY(-50%); width:auto; height:auto; right:50px;}
+#index .restaurant .swiper-container .title span {display:block; font-size:17px; color:#fff; text-align: center; line-height:1.75;}
+#index .restaurant .swiper-container .title a {display:block; color:#fff; border:1px solid #fff; font-size:14px; margin:30px auto 0; padding:10px 18px; width:fit-content;}
 
-#index .restaurant .InBox {height:80vh;min-height:500px;margin-top:5%;}
-#index .restaurant .InBox ul {height:100%;overflow:hidden;}
-#index .restaurant .InBox ul li {position:relative;width:calc(25% - 1px);float:left;height:100%;margin:0 0.5px;opacity:0;}
-#index .restaurant .InBox ul li a {position:relative;display:block;width:100%;height:100%;overflow:hidden;}
-#index .restaurant .InBox ul li a div {position:absolute;top:0;left:0;width:100%;height:100%;transform: scale(1);transition:0.5s;}
-#index .restaurant .InBox ul li a div:before {position:absolute;top:0;left:0;width:100%;height:100%;content:"";opacity:0.2;background:#fff;transition:0.5s;}
-#index .restaurant .InBox ul li a:hover div {transform: scale(1.03);}
-#index .restaurant .InBox ul li a:hover div:before {opacity:0;}
+#index .video {padding:6.5% 0; position: relative;}
+#index .video::after {position: absolute; background:url(http://gonylab4.speedgabia.com/suiteians/main/8.jpg) no-repeat 50% 50%; background-size:cover; filter:blur(5px);}
+#index .video::after {content:""; top:0; left:0; width:100%; height:100%; z-index:1;}
+#index .video .bg {position:absolute; width:100%; height:100%; top:0; left:0; background-color:#000; opacity:0.5; z-index:2;}
+#index .video .ttl {width:100%; color:#fff; position: absolute; top:120px; left:50%; transform:translateX(-50%); z-index: 3;} 
+#index .video .ttl h3 {font-size:50px;text-align:center;}
+#index .video .ttl h3 strong {font-family:linotype-didot, serif;display:block;}
+#index .video .ttl h3 span {display:block;font-size:19px;padding:30px 0;}
+#index .video #iframe {max-width:1400px;min-width:1000px;margin:0 auto;display:block; position: absolute; top:250px; left:50%; transform:translateX(-50%); z-index:3;}
 
 
 /*------------------------------------------------------------------------------------------------*/
@@ -458,7 +507,7 @@ header a,footer a 						    {display:block;}
 #index3 .Swipers .swiper-view { max-width:1400px; margin:0 auto; } 
 #index3 .Swipers .swiper-container { height:100%; overflow:hidden; } 
 #index3 .Swipers .swiper-slide>a { display: block; width:100%; height:100%; background-position:50% 50%; background-repeat:no-repeat; background-size:cover; } 
-#index3 .Swipers .swiper-btn { position:absolute; width:60px; height:90px; z-index:10; cursor:pointer; color:#fff; font-size:24px; padding: 3px; padding-top: 4px; background-size: contain; background-repeat: no-repeat; background-position: center center; } 
+#index3 .Swipers .swiper-btn { position:absolute; width:60px; height:90px; z-index:10; cursor:pointer; color:#fff; font-size:24px; padding: 3px; paddingbackground-size: contain; background-repeat: no-repeat; background-position: center center; } 
 #index3 .Swipers .swiper-btn.swiper-button-prev { left:80px; background-image: url(../images/prev_btn.png); } 
 #index3 .Swipers .swiper-btn.swiper-button-next { right:80px; background-image: url(../images/next_btn.png); } 
 #index3 .Swipers .swiper-pagination { width: 100%; bottom:3.5%; left:0; z-index:3; } 
