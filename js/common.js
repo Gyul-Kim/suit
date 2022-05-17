@@ -144,11 +144,30 @@ switch(path){
 			
  	break;
 
+	case 'location' :
+		$("#banner").prepend('<h2><img src="images/location_ttl_01.png" alt="" width="450" height="150" /></h2>');
+
+		
+		$.getJSON('http://digitalnow.co.kr/reserve/pensionInfo/'+ rv_ttl +'/4',
+		function(data){
+			$(".location .txt > p").eq(0).append("<span>" + data.result.NEW_USER_ADDR +  "</span>"); //'<br />' + data.result.USER_ADDR +
+			$(".location .txt > p").eq(1).append("<span>"+ data.result.USER_TEL1 +"</span>");
+			
+		});
+	
+	break;
+
+	case 'media' :
+
+	break;
+
+	case 'qna' :
+
+	break;
+
 	
 	//rooms Page
 	case 'rooms' :
-
-	
 	$.getJSON('http://digitalnow.co.kr/reserve/pensionInfo/'+ rv_ttl +'/8',
 	function(data){
 	
@@ -195,29 +214,33 @@ switch(path){
 			
 			$("section .InnerBox").append(
 				'<div class="slides" id="room_'+ numbering(a) +'">' +
-					'<div class="info">' +
-						'<h3><span>'+ data.result[nmb[z][a]]["TYPE_DESC"] +'</span><strong>'+ ttl[z][a] +'</strong></h3>' +
-						'<ul>' +
-							'<li>' +
-								'<strong>STRUCTURE</strong>' +
-								'<span>'+ data.result[nmb[z][a]]["ROOM_TYPE"] +'</span>' +
-							'</li>' +
-							'<li>' +
-								'<strong>ROOMS</strong>' +
-								'<span>침대 객실 : '+ data.result[nmb[z][a]]["FLHT_ROOM_CNT"] +'개</span>' +
-							'</li>' +
-							'<li>' +
-								'<strong>SIZE</strong>' +
-								'<span>'+ data.result[nmb[z][a]]["ROOM_EXTN"] +'㎡</span>' +
-							'</li>' +
-							'<li>' +
-								'<strong>GUEST LIMIT</strong>' +
-								'<span>기준 '+ data.result[nmb[z][a]]["ADLT_BASE_PERS"] +'명 ~ 최대 '+ data.result[nmb[z][a]]["ADLT_MAX_PERS"] +'명</span>' +
-							'</li>' +
-						'</ul>' +
-					'</div>' +
-					
 					'<div class="slide slide_02"><ul class="slide_show"></ul></div>' +
+					'<div class="info">' +
+						'<h3><strong>'+ ttl[z][a] +'</strong><span>('+ data.result[nmb[z][a]]["TYPE_DESC"] +')</span></h3>' +
+						'<div>' +
+							'<b>기본정보</b>' +
+							'<ul>' +
+								'<li>' +
+									'<strong>STRUCTURE</strong>' +
+									'<span>'+ data.result[nmb[z][a]]["ROOM_TYPE"] +'</span>' +
+								'</li>' +
+								'<li>' +
+									'<strong>ROOMS</strong>' +
+									'<span>침대 객실 : '+ data.result[nmb[z][a]]["FLHT_ROOM_CNT"] +'개</span>' +
+								'</li>' +
+							'</ul>' +
+							'<ul>' +	
+								'<li>' +
+									'<strong>SIZE</strong>' +
+									'<span>'+ data.result[nmb[z][a]]["ROOM_EXTN"] +'㎡</span>' +
+								'</li>' +
+								'<li>' +
+									'<strong>GUEST LIMIT</strong>' +
+									'<span>기준 '+ data.result[nmb[z][a]]["ADLT_BASE_PERS"] +'명 ~ 최대 '+ data.result[nmb[z][a]]["ADLT_MAX_PERS"] +'명</span>' +
+								'</li>' +
+							'</ul>' +
+						'</div>' +
+					'</div>' +
 				'</div>'
 			);
 			
@@ -235,16 +258,17 @@ switch(path){
 	
 		$("section .InnerBox").append(
 			'<div class="eq">' +
+				'<div class="img"><img src="'+ url +'/room/amenity.jpg" alt="" width="100%" height="auto" /></div>' +
 				'<div class="txt">' +
+					'<strong>공통 어메니티</strong>' +
 					'<div class="t01">' +
 						'<ul>' +
 							'<li>- Aromatherapy Essentials from UK 어메니티 제공</li>' +
 							'<li>- 5성급 호텔 침구 전문 제조업체 「바이바우」 침구</li>' +
 						'</ul>' +
 					'</div>' +
-					'<div class="t02"><strong>COMMON ITEM</strong><ul></ul></div>'	 +
+					'<div class="t02"><ul></ul></div>'	 +
 				'</div>' +
-				'<div class="img"><img src="'+ url +'/room/amenity.jpg" alt="" width="100%" height="auto" /></div>' +
 			'</div>'
 		);
 		
@@ -363,7 +387,7 @@ case 'fpv' :
 	
 break;
 /*---------------------------------------------------------------*/
-	//rooms Page
+	//special Page
 	case 'facility' :
 	
 	$("body").addClass("facil_" + m);
@@ -437,7 +461,7 @@ break;
 	break;
 
 /*---------------------------------------------------------------*/
-	//rooms Page
+	//restauratn Page
 	case 'food' :
 	
 	//$("body").addClass("_" + m);
@@ -456,60 +480,51 @@ break;
 		}
 
 		$(".section").eq(0).prepend('<h2><img src="images/food_ttl_01.png" alt="" width="800" height="200" /></h2>');
-		$("#contents .txt").append('<span>SUMMARY</span><p>'+ serviceList[0]["CONTENT"] +'</p>');	
-		
 		$("section .InnerBox").append(
 			'<div class="slides" id="slides">' +
 						
 				'<div class="slide slide_02">' +
 					'<ul class="slide_show"></ul>' +
 				'</div>' +
-				
 				'<div class="info">' +
-					// add
-					'<div>' +
-						'<img src="http://gonylab4.speedgabia.com/suiteians/food/6.jpg" alt="" height="auto" />' +
-						'<img src="http://gonylab4.speedgabia.com/suiteians/food/7.jpg" alt="" height="auto" />' +
-					'</div>' +
-					'<div>' +
-						'<strong>Reservation</strong>' +
-						'<p>' + serviceList[0]["CONTENT1"] + '</p>' +
-					'</div>' +
-					'<div>' +
-						'<strong>Press (SNS Channel)</strong>' +
-						'<p>' + serviceList[0]["CONTENT2"] + '</p>' +
-					'</div>' +
-					// add
-				'</div>' +
-				
-				'<div class="img">' +
-					'<div class="txt">' + 
-						'<h4><img src="images/food_ttl_02.png" alt="" width="750" height="200" /></h4>' +
-						'<p>'+ serviceList[0]["CONTENT3"] +'</p>' +
-					'</div>' +
-				'</div>' +
-				
-				'<div class="info" style="padding:10% 0 5%;">' +
-					'<h5>RESTAURANT MENU</h5>' +
-					'<a href="menu.pdf" target="_blank" class="btn">' +
-						'<div class="back"></div>' +
-						'<div class="mask">' +
-							'<div>' +
-								'<span>전체 메뉴보기(PDF)</span>' +
-								'<span>전체 메뉴보기(PDF)</span>' +
-							'</div>' +
+						'<h3><strong>스위티안 레스토랑</strong></h3>' +
+						'<div>' +
+							'<b>인사말</b>' +
+							'<ul  style="display:block;">' +
+								'<strong>SUMMARY</strong>' +
+								'<li>' + serviceList[0]["CONTENT"]  +'</li>' +
+							'</ul>' +
 						'</div>' +
-					'</a>' +
-				'</div>' +
-				
-				'<div class="restaurant">' +
-					'<ul>' +
-						'<li class="r01"><a href="#"><div></div></a></li>' +
-						'<li class="r02"><a href="#"><div></div></a></li>' +
-						'<li class="r03"><a href="#"><div></div></a></li>' +
-						'<li class="r04"><a href="#"><div></div></a></li>' +
-					'</ul>' +
-				'</div>' +
+						'<div>' +
+							'<b>영업시간</b>' +
+							'<ul>' +
+								'<li>' +
+									'<strong>Reservation</strong>' +
+									'<p>' + serviceList[0]["CONTENT1"] + '</p>' +
+								'</li>' +
+								'<li>' +
+									'<strong>Press (SNS Channel)</strong>' +
+									'<p>' + serviceList[0]["CONTENT2"] + '</p>' +
+								'</li>' +
+							'</ul>' +
+						'</div>' +
+						'<div>' +
+							'<b>메뉴소개</b>' +
+							'<ul>' +
+								'<li>' +
+									'<a href="menu.pdf" target="_blank" class="btn">' +
+									'<div class="back"></div>' +
+									'<div class="mask">' +
+										'<div>' +
+											'<span>전체 메뉴보기(PDF)</span>' +
+											'<span>전체 메뉴보기(PDF)</span>' +
+										'</div>' +
+										'</div>' +
+									'</a>' +
+								'</li>' +
+							'</ul>' +
+						'</div>' +
+					'</div>' +
 			'</div>'
 		);
 
@@ -529,7 +544,7 @@ break;
 	});
 	break;
 /*---------------------------------------------------------------*/
-	//rooms Page
+	//reservation Page
 	case 'reserve' :
 	
 	$("#banner").prepend('<h2><img src="images/rev_ttl_01.png" alt="" width="450" height="150" /></h2>');
@@ -548,7 +563,7 @@ break;
 	reserInfo(rv_ttl);
 break;
 /*---------------------------------------------------------------*/
-	//rooms Page
+	//offers Page
 	case 'offers' :
 
 	$("#banner").prepend('<h2><img src="images/off_ttl_01.png" alt="" width="450" height="150" /></h2>');
@@ -568,7 +583,7 @@ break;
 break;
 
 /*---------------------------------------------------------------*/
-	//rooms Page
+	//community Page
 	case 'community' :
 	
 	$("#banner").prepend('<h2><img src="images/com_ttl_01.png" alt="" width="450" height="150" /></h2>');
@@ -611,55 +626,23 @@ $("#scroll a").on("click",function(){ $("html,body").stop(true,false).animate({"
 //footer
 $.getJSON('http://digitalnow.co.kr/reserve/pensionInfo/'+ rv_ttl +'/4',	//사업자 정보
 	function(data){
-		$("footer").append(
-			'<div class="ft_lt">' +
-				'<h1><a href="index.html"><img src="images/ft_logo.jpg" alt="" width="143" height="auto" /></a></h1>' +
-			'</div>' +
-			'<div class="ft_rt">' +
-				'<div class="InnerBox">' +
-					'<div class="lt">' +
-						'<strong>INFORMATIONS</strong>' +
-						'<ul>' +
-							'<li>' +
-								'<em>ADD :</em>' +
-								'<span>'+ 
-                                    data.result.NEW_USER_ADDR + '<br />' +
-                                    // 업체 측 요청으로 삭제 처리
-									//data.result.USER_ADDR + 
-								'</span>'+
-							'</li>' +
-							'<li><em>전화예약 TEL : </em><span>031-581-5300</span></li>' +
-                            //'<li><em>입금계좌 : </em><span>'+ data.result.USER_ACCO +'</span></li>' +
-							// '<li><em>입금계좌 : </em><span>농협 351-1148-9666-43 심원보(호텔 스위티안)</span></li>' +
-							
-							
-                            // 업체 측 요청으로 삭제 처리
-							// '<li><em>TEL : </em><span>'+ data.result.USER_TEL1 +'</span></li>' +
-							'<li><em>E-MAIL : </em><span>'+ data.result.USER_EMAIL +'</span></li>' +
-							'<li><em>업체명 : </em><span>'+ data.result.BUSI_NM +'</span></li>' +
-							'<li><em>대표 : </em><span class="BUSI_PRE_NM"></span></li>' +
-                            '<li><em>사업자등록번호 : </em><span class="BUSI_NO"></span></li>' +
-                            // 업체 측 요청으로 삭제 처리
-                            '<li><em>통신판매업신고번호 : </em>' + data.result.COMM_SALE_NO + '</li>' +
-						'</ul>' +
-					'</div>' +
-					'<div class="rt">' +
-						'<div>' +
-							// '<strong>RESERVATION</strong><a href="http://newstay.net/hotel/?idx=1843" target="_blank">실시간예약 바로가기</a>' +
-							'<strong>RESERVATION</strong><a href="reserve.html">실시간예약 바로가기</a>' +
-						'</div>' +
-						'<div>' +
-							'<strong>SNS CHANNEL</strong>' +
-							'<ul>' +
-								'<li><a href="#" class="sns_01" target="_blank"><img src="images/sns_01.png" alt="" width="23" height="23" /></a></li>' +
-								'<li><a href="#" class="sns_05"><img src="images/sns_05.png" alt="" width="23" height="23" /></a></li>' +
-								'<li><a href="#" class="sns_04" target="_blank"><img src="images/sns_04.png" alt="" width="23" height="23" /></a></li>' +
-							'</ul>' +
-						'</div>' +
-					'</div>' +
-				'</div>' +
-			'</div>'
-			);
+		$("footer .ft_info1").append(
+			'<h3>INFORMATION</h3>' +
+			'<ul>' +
+				'<li><em>전화예약 TEL : </em><span>031-581-5300</span></li>' +
+				'<li><span>' + data.result.NEW_USER_ADDR +'</span></li>' +
+				'<li><em>E-MAIL : </em><span>'+ data.result.USER_EMAIL +'</span></li>' +
+			'</ul>'
+		);
+
+		$("footer .ft_info2").append(
+			'<h3></h3>' +
+			'<ul>' +
+				'<li><em>대표 : </em><span>심원보</span></li>' +
+				'<li><em>사업자등록번호 : </em><span></span></li>' +
+				'<li><em>통신판매번호 : </em><span>' + data.result.COMM_SALE_NO + '</span></li>' +
+			'</ul>'
+		);
 		
 		//사업자 정보	
 		$.getJSON('http://digitalnow.co.kr/reserve/pensionInfo/'+ rv_ttl +'/11', //사업자 정보

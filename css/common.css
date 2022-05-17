@@ -25,7 +25,7 @@ section .section .txt a:hover div.mask span	{transform: translateY(-100%)}
 .visual {width:100%; height:100vh; position:relative; z-index:1;}
 
 
-.sub #banner 							    {height:85vh;min-height:562px;overflow:hidden;}	
+.sub #banner 							    {height:800px;min-height:562px;overflow:hidden;}	
 .sub #banner:before 						{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.2;background:#000;content:"";}
 .sub .section:first-child h2 				{position:absolute;bottom:10%;left:3%;z-index:1;}
 		
@@ -61,7 +61,7 @@ section .section .txt a:hover div.mask span	{transform: translateY(-100%)}
 .slide_01 #nav > ul li a.active 			{background:url(../images/on.png) no-repeat 0 0;}
 
 /* slide_02 */
-.slide_02 								    {max-width:1400px;min-width:860px;min-height:483px;margin:0 auto;overflow:visible!important;}
+.slide_02 								    {max-width:1300px;min-width:860px;min-height:483px;margin:0 auto;overflow:visible!important;}
 .slide_02 .slide_show 					    {position:relative;width:100%;height:100%;overflow:visible!important;}
 .slide_02 .slide_show li					{position:absolute;top:0;left:0;width:100%;height:100%;}
 .slide_02 .slide_show li div 				{position:absolute;top:0;left:0;width:100%;height:100%;}
@@ -154,7 +154,7 @@ hgroup .book                                        {position:absolute; width:14
 hgroup .book a {display:block; font-size:16px; color:#fff; text-align: center; padding:30px 0;}
 
 nav                                                 {position:fixed;top:75px;left:0;width:100%;height:0;min-width:1000px;overflow:hidden;transition:0.5s;z-index:-1;}
-nav:before                                          {position:absolute;top:0;left:0;width:100%;height:calc(100% - 2px);content:"";display:block;opacity:0.75;z-index:1;}
+nav:before                                          {position:absolute;top:0;left:0;width:100%;height:calc(100% - 2px);content:"";display:block;opacity:0.85;z-index:1;}
 nav:before                                          {background:#fff;border-top:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;}
 nav > div                                           {position:absolute;width:90%;height:350px;padding-top:30px;left:5%;overflow:visible;opacity:0;transition:0.5s ease ;z-index:1;}
 nav > div .ttls                                     {width:18%;float:left;margin:25px 0;padding-left:9%;}
@@ -168,6 +168,8 @@ nav > div .menus div > ul                               {float:left;position:rel
 nav > div .menus div > ul                               {padding-left:5%;}
 nav > div .menus div > ul li                            {line-height:1.3;padding-bottom:13px;}
 nav > div .menus div > ul li a                          {display:block;overflow:hidden;}
+nav > div:not(.gb02) .menus div > ul {display:flex;}
+nav > div:not(.gb02) .menus div > ul li {flex:1;} 
 nav > div .menus div > ul li a span                     {display:block; line-height:1.5;}
 nav > div .menus div > ul li a span.en                  {width:190px;font-size:16px; color:#9c836a;}
 nav > div .menus div > ul li a span.ko                  {color:#9b9b9b;font-size:16px; margin-top:15px;}
@@ -179,6 +181,7 @@ nav > div .menus div h3 span {display: block; font-size:12px; margin-bottom:10px
 nav > .gb02 .menus > ul li a span.en                {width:300px;}
 
 nav > div .menus div {width:90%;}
+nav > div:not(.gb02) .menus div {display:flex;}
 nav > div .menus div h3 {display: block; float:left;}
 nav > div .menus div h3 ul li a:first-of-type {padding-top:0;}
 
@@ -192,28 +195,36 @@ nav > .gb02 .menus .room_menu ul a span.en {color:#000; font-size:14px;}
 		
 
 /* Feader */
-footer 									    {width:100%; z-index:1000;}
-footer > div 							    {position:relative;background:#8d857b;float:left;padding:3.5% 0;height:200px;}
-footer > div.ft_lt 						    {width:30%;}
-footer > div.ft_lt h1 					    {width:143px;margin:0 auto;}
-footer > div.ft_rt 						    {background:#494949;width:70%;}
-footer .InnerBox 							{width:80%;margin:0 auto;overflow:hidden;}
-footer .InnerBox > div 					    {float:left;width:50%;}
-footer .InnerBox > div strong 				{font-size:15px;color:#cecece;letter-spacing:1px;display:block;} 
-footer .InnerBox > div.lt ul 				{width:100%;padding-top:3%;line-height:1.5em;font-size:15px;color:#b7b7b7;}
-footer .InnerBox > div.lt ul li 			{width:100%;overflow:hidden;margin-bottom:5px;}
-footer .InnerBox > div.lt ul li:last-child  {margin-bottom:0px;}
-footer .InnerBox > div.lt ul li em 		    {float:left;display:block;margin-right:5px;}
-footer .InnerBox > div.lt ul li span 		{float:left;display:block;}
-footer .InnerBox > div.rt > div:first-child	{margin-bottom:50px;}
-footer .InnerBox > div.rt > div 			{width:100%;overflow:hidden;}
-footer .InnerBox > div.rt > div strong 		{display:block;float:left;width:190px;padding:5px 0;} 
-footer .InnerBox > div.rt > div a 			{padding:15px;border:1px solid #929292;transition: 0.3s;}
-footer .InnerBox > div.rt > div > a 		{float:left;width:153px;text-align:center;color:#fff;padding:22px 15px;}
-footer .InnerBox > div.rt > div > ul 		{float:left;overflow:hidden;}
-footer .InnerBox > div.rt > div > ul li 	{float:left;margin-left:10px;}
-footer .InnerBox > div.rt ul li:first-child	{margin:0;}
-footer .InnerBox > div.rt div a:hover 		{opacity:0.7;}
+footer { text-align: center; position: relative; height:100%; overflow: hidden; color: #fff; background-color:#3e3e3e;}
+footer .ft_top {background-color:#565656; height:60px; width:100%; position: relative; z-index: 1;}
+footer .ft_top ul {width:100%; max-width:800px; margin:0 auto; display:flex;}
+footer .ft_top ul li {flex:1; padding:22px 0;}
+footer .ft_top ul li span {color:#fff; font-size:15px; }
+footer .ft_top ul li:hover span {font-weight:bold;}
+
+footer .wrap {width:100%; height:100%; overflow: hidden; position: relative; border-bottom:1px solid #fff; z-index:2;}
+footer .inner {max-width: 1300px; margin: 0 auto; position: relative; display:flex; z-index: 2; padding:30px 0;}
+footer .inner img { margin-bottom: 20px; }
+footer .inner .ft_info1, .ft_info2 {flex:1.5; text-align:left; font-size:15px; color:#9d9d9d; margin:40px;}
+footer .inner .ft_img {flex:1;}
+footer .inner ul li {margin:15px 0;}
+footer .inner ul li span {color:#e5e5e5; font-size:15px;}
+
+footer .ft_bottom {color:#fff; max-width: 1300px; width:100%; height:100%; overflow: hidden; margin:0 auto;}
+footer .ft_bottom .icons {display:flex; float:left; padding:14px 0;}
+footer .ft_bottom .icons span, a {display:block; flex:1;}
+footer .ft_bottom .icons span {flex:2.5; line-height:4.5; font-size:14px; color:#9d9d9d;}
+footer .ft_bottom .icons a {margin:0 13px;}
+footer .ft_bottom .ft_resv {float:right; padding:22px 0;}
+footer .ft_bottom .ft_resv span {display:inline-block; color:#9d9d9d; font-size:14px; margin-right:10px;}
+footer .ft_bottom .ft_resv a {display:inline-block; font-size:15px; color:#fff; padding:15px 30px; border:1px solid #9d9d9d;}
+
+footer .ft_bottom .icons a:hover {filter:drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));}
+footer .ft_bottom .ft_resv a:hover {filter:drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5))}
+
+footer .ft_bottom .copyright { margin-top: 20px; font-size: 13px; width:fit-content; line-height:3.5; text-align: center; margin:0 auto;}
+footer .ft_bottom .copyright a { color: #fff; font-family: FuturaStd; }
+footer .ft_bottom .copyright a:hover { text-decoration: underline;}
 
 header a,footer a 						    {display:block;} 
 
@@ -223,14 +234,23 @@ header a,footer a 						    {display:block;}
 /* Index */
 #index .section {margin-top:5.5%;}
 #index .section:first-child {padding-top:0; margin-top:0;}
+#index .offers {background-color:#f1f1f1; margin-top:0; padding-top:5.5%; padding-bottom:5.5%;}
+#index .offers h3 {display:block; max-width:1300px; margin:0 auto; color:#333;}
+#index .offers h3 strong {display:inline-block; text-align:left; font-weight:bold; font-size:30px; margin-right:20px;}
+#index .offers h3 span {display:inline-block; text-align:left; font-size:17px;}
 
-#index .offers h3 {font-size:36px;font-family:athelas,serif;color:#696969;margin-bottom:2.5%;letter-spacing:0.5px;}
-#index .offers > div {max-width:1300px;min-width:800px;margin:0 auto;}
+#index .offers ul {width:100%; overflow: hidden; height:100%; max-width:1300px; margin:30px auto; display:flex;}
+#index .offers ul li {flex:1; margin:0 2.5%}
+#index .offers ul li .txt {text-align:center;}
+#index .offers ul li .txt strong {display: block; font-weight:bold; font-size:17px; color:#333; margin:30px 0 20px; line-height:1.5;}
+#index .offers ul li .txt span {display: block; font-size:15px; line-height:1.75;}
+#index .offers ul li .txt a {display:block; background:none; width:fit-content; text-align:center; font-size:16px; margin:30px auto 0;}
+#index .offers > div {max-width:1300px;min-width:800px;margin:30px auto 0;} 
 
 #index .offers .InBox {position:relative;margin-bottom:10%;}
 #index .offers .InBox .swiper {width:100%;overflow:hidden;}
 
-#index .offers .InBox .swiper a {display:block;}
+/* #index .offers .InBox .swiper a {display:block;}
 #index .offers .InBox .swiper a .img {max-width:600px;}
 #index .offers .InBox .swiper a .txt {width:95%;margin:0 auto;text-align:center;line-height:1.5;}
 #index .offers .InBox .swiper a .txt strong {display:block;font-size:1.1vw;font-weight:bold;margin:5% 0 3%;}
@@ -238,8 +258,9 @@ header a,footer a 						    {display:block;}
 #index .offers .InBox .swiper a .txt strong b.b01 {color:#007488;}
 #index .offers .InBox .swiper a .txt strong b.b02 {color:#a58f65;}
 #index .offers .InBox .swiper a .txt span {font-size:0.9vw;display:block;color:#838383;}
-#index .offers .InBox .swiper a .txt em {display:block;font-size:0.8vw;font-weight:bold;margin-top:5%;}
+#index .offers .InBox .swiper a .txt em {display:block;font-size:0.8vw;font-weight:bold;margin-top:5%;} */
 
+#index .list {margin-top:0;}
 #index .list::after {content:""; position: absolute; left:0; top:0; width:100%; height:100%; background-color:#000; opacity:0.5;}
 #index .list h3 {position: absolute; top:250px; left:7%; transform:translateX(-7%); z-index:50; font-size:50px; color:#fff;}
 #index .list .img {position:relative;width:100%;height:100%;}
@@ -300,28 +321,18 @@ header a,footer a 						    {display:block;}
 /*------------------------------------------------------------------------------------------------*/
 /* Location */
 #location #contents {padding-top:3%;}
-#location .slides {position:relative;width:100%;padding:3% 0 5%;overflow:hidden;}
-#location .slides h3 {position:relative;font-size:30px;font-family:athelas,serif;text-align:right;right:0;padding-bottom:3%;width:95%;height:30px;z-index:1;}
-#location .slides .InBox {position:relative;width:90%;float:right;z-index:1;}
-#location .slides:before {position:absolute;top:27.5%;left:0;width:100%;height:72.5%;opacity:1;background:#8d857b;content:"";}
-
-#location .location {max-width:1200px;min-width:860px;padding:10% 0;margin:0 auto;overflow:hidden;}
-#location .location > div {width:48%;margin:0 1%;float:left;}
+#location .location h3 {position:relative;text-align:center;right:0;padding-bottom:3%;width:100%;height:30px;z-index:1;}
+#location .location h3 strong {display: block; font-size:30px;font-family:athelas,serif; }
+#location .location {max-width:1200px;min-width:860px;padding-bottom:3%;margin:0 auto;overflow:hidden;}
+#location .location > div {width:90%;margin:0 auto; }
+#location .location .txt {margin-top:40px; border-top:1px solid #333; padding:40px;}
+#location .location .txt p em {display:inline-block; font-size:16px; width:130px; font-weight:bold;}
 #location .location .txt > span {font-size:15px;line-height:1.5;padding:7% 0 10%;display:block;}
-#location .location .txt p {margin-bottom:5%;}
+#location .location .txt p {margin-bottom:3%;}
 #location .location .txt p strong {display:block;font-size:16px;color:#afafaf;margin-bottom:3px;}
-#location .location .txt p span {display:block;line-height:1.7;font-size:18px;color:#101010;}
-
-#location .location .txt .metro strong {display:block;font-size:16px;color:#afafaf;margin-bottom:15px;}
-#location .location .txt .metro a.btn {position:relative;width:250px;height:50px;display:block;letter-spacing:1px;background:#58939d;overflow:hidden;}
-#location .location .txt .metro a.btn div.back {position:absolute;top:0;left:0;width:100%;height:100%;background:#007488;transition: 0.5s;}
-#location .location .txt .metro a.btn div.mask {position:relative;padding-top:20px;}
-#location .location .txt .metro a.btn div.mask div {height:15px;overflow:hidden;}
-#location .location .txt .metro a.btn div.mask div span	{text-align:center;display:block;color:#fff;font-size:14px;font-family:'FuturaStd-Book','nanumbarungothicregular', 돋움, Dotum, sans-serif;}
-#location .location .txt .metro a.btn div.mask div span	{transition:transform 0.5s cubic-bezier(.65,0,.35,1)}
-#location .location .txt .metro a.btn:hover div.back {top:100%;}
-#location .location .txt .metro a.btn:hover div.mask span {transform: translateY(-100%)}
-
+#location .location .txt p span {display:inline-block;line-height:1.7;font-size:16px;color:#101010;}
+#location .location .metro { border-top:1px solid #dadada; border-bottom:1px solid #dadada; padding:40px;}
+#location .location .metro em {display:inline-block; font-size:16px; width:130px; font-weight:bold;}
 
 #location .travel {max-width:1400px;min-width:860px;padding:7.5% 0;margin:0 auto;overflow:hidden;border-top:1px solid #e8e8e8;}
 #location .travel h4 {text-align:center;margin-bottom:5%;line-height:1.5;}
@@ -339,41 +350,43 @@ header a,footer a 						    {display:block;}
 
 /*------------------------------------------------------------------------------------------------*/
 /* Detail */
-.detail #banner {height:95vh;min-height:562px;overflow:hidden;}	
+.detail #banner {height:800px;min-height:562px;overflow:hidden;}	
 .detail #banner:before {position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.2;background:#000;content:"";}
 .detail .section:first-child h2 {position:absolute;top:50%;left:50%;margin:-100px 0 0 -400px;z-index:1;}
 
 .detail #contents {background:#fff;}
 .detail #contents > .txt {max-width:1400px;min-width:950px;padding:7.5% 25px;margin:0 auto;color:#a6aba1;border-bottom:1px solid #e8e8e8;}
-.detail #contents > .txt span {display:block;font-size:15px;font-family:athelas,serif;margin-bottom:2%;}
-.detail #contents > .txt p {line-height:200%;font-size:1.2vw;}
+.detail #contents > .txt span {display:block;font-size:30px;font-family:athelas,serif;margin-bottom:2%; text-align: center;}
+.detail #contents > .txt p {line-height:200%;font-size:15px; text-align: center; color:#333;}
 
 .detail #contents > .InnerBox {width:100%;}
 .detail #contents > .InnerBox .slides {padding:5.5% 0 7.5%;}
-.detail #contents > .InnerBox .slides .info {max-width:1400px;min-width:950px;padding:0 25px 2.5%;margin:0 auto;overflow:hidden;}
-.detail #contents > .InnerBox .slides .info > h3 {float:left;width:42%;}
-.detail #contents > .InnerBox .slides .info > h3 span {color:#bec2ba;display:block;font-size:28px;margin-bottom:2%;}
-.detail #contents > .InnerBox .slides .info > h3 strong {color:#70756b;display:block;font-size:57px;font-weight:bold;}
+.detail #contents > .InnerBox .slides .info {max-width:1300px;min-width:950px;padding:0 25px 2.5%;margin:0 auto;overflow:hidden;}
+.detail #contents > .InnerBox .slides .info > h3 {width:fit-content; margin:60px auto;}
+.detail #contents > .InnerBox .slides .info > h3 span {color:#bec2ba;display:inline-block;font-size:20px;}
+.detail #contents > .InnerBox .slides .info > h3 strong {color:#70756b;display:inline-block;font: size 20px;font-weight:bold; margin-right:12px;}
 
-.detail #contents > .InnerBox .slides .info > ul {float:left;width:55.5%;margin-left:2.5%;}
-.detail #contents > .InnerBox .slides .info > ul li {margin-bottom:3.5%;line-height:1.5;overflow:hidden;}
-.detail #contents > .InnerBox .slides .info > ul li strong {display:block;height:10px;float:left;margin-right:20px;color:#afafaf;}
-.detail #contents > .InnerBox .slides .info > ul li span {display:block;float:left;font-weight:bold;}
+.detail #contents > .InnerBox .slides .info div {display:flex; height:100%; overflow: hidden; margin-top:50px; padding:25px 0; border-top:1px solid #565656; border-bottom:1px solid #ddd;}
+.detail #contents > .InnerBox .slides .info div b {display:block; float: left; width:130px; font-size:17px; font-weight:500;}
+.detail #contents > .InnerBox .slides .info div ul {flex:1; height:100%; overflow: hidden;}
+.detail #contents > .InnerBox .slides .info div ul li {margin-bottom:3.5%;line-height:1.5;overflow:hidden; font-size:15px;}
+.detail #contents > .InnerBox .slides .info div ul li strong {display:block;height:10px;float:left;margin-right:20px;color:#afafaf;}
+.detail #contents > .InnerBox .slides .info div ul li span {display:block;float:left;font-weight:bold;}
 
+.detail #contents > .InnerBox .eq .txt strong {font-size:25px;color:#333;display:block;margin-bottom:2%;}
 .detail #contents > .InnerBox .eq {max-width:1400px;min-width:900px;padding:5% 50px;border-top:1px solid #e8e8e8;margin:0 auto;overflow:hidden;}
-.detail #contents > .InnerBox .eq .txt {float:left;width:50%;}
+.detail #contents > .InnerBox .eq .txt {float:left;width:50%; margin-left:2.5%;}
 .detail #contents > .InnerBox .eq .txt > div.t01 {padding-top:5%;}
-.detail #contents > .InnerBox .eq .txt > div.t01 li {font-size:21px;line-height:1.3;margin-bottom:2%;color:#060606;}
-.detail #contents > .InnerBox .eq .txt > div.t02 {padding-top:5%;}
-.detail #contents > .InnerBox .eq .txt > div.t02 strong {font-size:16px;color:#c2c2c2;display:block;margin-bottom:2%;}
+.detail #contents > .InnerBox .eq .txt > div.t01 li {font-size:16px;line-height:1.3;margin-bottom:2%;color:#060606;}
+.detail #contents > .InnerBox .eq .txt > div.t02 {padding-top:3%;}
 .detail #contents > .InnerBox .eq .txt > div.t02 ul {overflow:hidden;width:100%;line-height:1.8;}
-.detail #contents > .InnerBox .eq .txt > div.t02 ul li {font-size:16px;color:#181818;float:left;}
+.detail #contents > .InnerBox .eq .txt > div.t02 ul li {font-size:15px;color:#181818;float:left;}
 .detail #contents > .InnerBox .eq .txt > div.t02 ul li {padding:0 0 0 20px;background:url(../images/blt.gif) no-repeat left 10px;}
 .detail #contents > .InnerBox .eq .txt > div.t02 ul li {width:calc(33.33% - 20px);}
 .detail #contents > .InnerBox .eq .txt > div.t02 ul {margin-bottom:35px;}
 .detail #contents > .InnerBox .eq .txt > div.t02 p {color:#a58f65;}
 
-.detail #contents > .InnerBox .eq .img {float:left;width:47.5%;margin-left:2.5%;}
+.detail #contents > .InnerBox .eq .img {float:left;width:47.5%;}
 
 
 
@@ -399,8 +412,8 @@ header a,footer a 						    {display:block;}
 
 .special #contents {background:#fff;}
 .special #contents > .txt {max-width:1400px;min-width:950px;padding:7.5% 25px;margin:0 auto;color:#a6aba1;}
-.special #contents > .txt span {display:block;font-size:15px;font-family:athelas,serif;margin-bottom:2%;}
-.special #contents > .txt p {line-height:200%;font-size:1.2vw;}
+.special #contents > .txt span {display:block;font-size:20px;font-family:athelas,serif;margin-bottom:2%; text-align: center; color:#000;}
+.special #contents > .txt p {line-height:200%;font-size:16; text-align: center; color:#333;}
 
 .special #contents > .InnerBox {width:100%;}
 .special #contents > .InnerBox .slides {padding:0;}
@@ -423,25 +436,26 @@ header a,footer a 						    {display:block;}
 #food .restaurant ul li a div:before {position:absolute;top:0;left:0;width:100%;height:100%;content:"";opacity:0.2;background:#fff;transition:0.5s;}
 #food .restaurant ul li a:hover div {transform: scale(1.03);}
 #food .restaurant ul li a:hover div:before {opacity:0;}
+#food .InnerBox ul:nth-child(2) {display:flex;}
+#food .InnerBox ul:nth-child(2) li {flex:1;}
 
 
 #food #contents > .InnerBox .slides .info {max-width:1300px;margin:0 auto;}
 #food #contents > .InnerBox .slides .info > div:first-child {width:100%;float:none;margin:0 0 5%;overflow:hidden;}
 #food #contents > .InnerBox .slides .info > div:first-child img {display:block;float:left;width:49%;margin:0 0.5%;}
-#food #contents > .InnerBox .slides .info > div {float:left;width:48%;margin:0 1%;}
+#food #contents > .InnerBox .slides .info > div {width:90%;margin:0 auto;}
 #food #contents > .InnerBox .slides .info > div > strong {display:block;font-size:18px;color:#c4c4c4;margin-bottom:3.5%;padding-left:2%;}
 #food #contents > .InnerBox .slides .info > div > span {display:block;font-size:17px;font-weight:bold;margin-bottom:2%;padding-left:2%;}
 #food #contents > .InnerBox .slides .info > div > p {line-height:1.5;font-size:16px;margin-bottom:5%;padding-left:2%;}
 
-#food #contents > .InnerBox .slides .info h5 {font-size:35px;text-align:center;font-family:athelas,serif;margin-bottom:30px;}
-#food #contents > .InnerBox .slides .info a.btn 	{position:relative;width:250px;height:50px;display:block;letter-spacing:1px;background:#58939d;margin:0 auto;overflow:hidden;}
-#food #contents > .InnerBox .slides .info a.btn div.back {position:absolute;top:0;left:0;width:100%;height:100%;background:#007488;transition: 0.5s;}
-#food #contents > .InnerBox .slides .info a.btn div.mask {position:relative;padding-top:20px;}
-#food #contents > .InnerBox .slides .info a.btn div.mask div {height:15px;overflow:hidden;}
-#food #contents > .InnerBox .slides .info a.btn div.mask div span	{text-align:center;display:block;color:#fff;font-size:14px;}
-#food #contents > .InnerBox .slides .info a.btn div.mask div span	{transition:transform 0.5s cubic-bezier(.65,0,.35,1)}
-#food #contents > .InnerBox .slides .info a.btn:hover div.back {top:100%;}
-#food #contents > .InnerBox .slides .info a.btn:hover div.mask span {transform: translateY(-100%)}
+#food #contents > .InnerBox .slides .info div ul li  a.btn 	{position:relative;width:250px;height:50px;display:block;letter-spacing:1px;background:#58939d;overflow:hidden;}
+#food #contents > .InnerBox .slides .info div ul li  a.btn div.back {position:absolute;top:0;left:0;width:100%;height:100%;background:#007488;transition: 0.5s;}
+#food #contents > .InnerBox .slides .info div ul li  a.btn div.mask {position:relative;padding-top:20px;}
+#food #contents > .InnerBox .slides .info div ul li  a.btn div.mask div {height:15px;overflow:hidden;}
+#food #contents > .InnerBox .slides .info div ul li  a.btn div.mask div span	{text-align:center;display:block;color:#fff;font-size:14px;}
+#food #contents > .InnerBox .slides .info div ul li  a.btn div.mask div span	{transition:transform 0.5s cubic-bezier(.65,0,.35,1)}
+#food #contents > .InnerBox .slides .info div ul li  a.btn:hover div.back {top:100%;}
+#food #contents > .InnerBox .slides .info div ul li  a.btn:hover div.mask span {transform: translateY(-100%)}
 
 /*------------------------------------------------------------------------------------------------*/
 /* Table */
