@@ -82,8 +82,8 @@ section .section .txt a:hover div.mask span	{transform: translateY(-100%)}
 .slide_02 #nav > ul li a 					{width:17px;height:17px;display:block;margin:0 auto;background:url(../images/off.png) no-repeat 0 0;}
 .slide_02 #nav > ul li a.active 			{background:url(../images/on.png) no-repeat 0 0;}
 
-.Swipers {max-width:100%!important;overflow:hidden;}	
-.Swipers .InBox {height:100vh;min-height:560px;}
+.Swipers {max-width:100%; overflow:hidden;}	
+.Swipers .InBox {height:100vh;;}
 .Swipers .swiper-container {height:100%;}
 .Swipers .swiper-slide > div {width:100%;height:100%;transition:1s;opacity:0.2;}
 .Swipers .swiper-slide > div {background-position:50% 50%;background-repeat:no-repeat;background-size:cover;}
@@ -135,23 +135,32 @@ section .section .txt a:hover div.mask span	{transform: translateY(-100%)}
 #community #banner						{background:url(http://gonylab4.speedgabia.com/suiteians/banner/3.jpg) no-repeat 50% 50%;background-size:cover;}
 #qna #banner							{background:url(http://gonylab4.speedgabia.com/suiteians/banner/2.jpg) no-repeat 50% 50%;background-size:cover;}
 
+#header .gnb > div div.bg:first-of-type {background:url(http://gonylab4.speedgabia.com/suiteians/main/1.jpg) no-repeat 50% 50%;background-size:cover;}
+#header .gnb > div div.bg:nth-of-type(2) {background:url(http://gonylab4.speedgabia.com/suiteians/main/2.jpg) no-repeat 50% 50%;background-size:cover;}
+#header .gnb > div div.bg:nth-of-type(3) {background:url(http://gonylab4.speedgabia.com/suiteians/main/3.jpg) no-repeat 50% 50%;background-size:cover;}
+#header .gnb > div div.bg:nth-of-type(4) {background:url(http://gonylab4.speedgabia.com/suiteians/main/4.jpg) no-repeat 50% 50%;background-size:cover;}
+#header .gnb > div div.bg:nth-of-type(5) {background:url(http://gonylab4.speedgabia.com/suiteians/main/5.jpg) no-repeat 50% 50%;background-size:cover;}
+#header .gnb > div div.bg:last-of-type {background:url(http://gonylab4.speedgabia.com/suiteians/main/6.jpg) no-repeat 50% 50%;background-size:cover;}
+
 
 /*------------------------------------------------------------------------------------------------*/
 /* Header */
 /* header - default */
+#header {display:none;}
+#nav {display:none;}
 header                                              {position:fixed;top:0;left:0;width:100%;min-width:1000px;z-index:500;}
-hgroup                                              {position:relative;width:100%;height:75px;background:#fff;border-bottom:1px solid #e8e8e8;overflow:visible;}
-hgroup #lnb                                         {float:left;width:60%;min-width:580px;height:75px;}
-hgroup #lnb .InBox                                  {width:100%;height:75px;overflow:visible;}
-hgroup #lnb .InBox h1                               {width:15%;float:left;text-align:center;padding:4px 0 4px 20px;}
-hgroup #lnb .InBox ul                               {width:77%; display:flex; overflow:hidden;}
-hgroup #lnb .InBox ul li                            {float:left; flex:1;}
-hgroup #lnb .InBox ul li:nth-of-type(2)             {width:40%;}
-hgroup #lnb .InBox ul li a                          {padding:29px 0;font-size:16px;font-weight:bold;text-align:center;}
-hgroup #lnb .InBox ul li.on a                       {color:#9c836a; border-bottom:2px solid #9c836a;}	
+header hgroup                                              {position:relative;width:100%;height:75px;background:#fff;border-bottom:1px solid #e8e8e8;overflow:visible;}
+header hgroup #lnb                                         {float:left;width:47%;min-width:580px;height:75px;position:absolute; left:50%; transform:translateX(-50%);}
+header hgroup #lnb .InBox                                  {width:100%;height:75px;overflow:visible;}
+header hgroup h1                               {width:10%;float:left;text-align:center;padding:4px 0 4px 20px;}
+header hgroup #lnb .InBox ul                               {width:100%; display:flex; overflow:hidden;}
+header hgroup #lnb .InBox ul li                            {float:left; flex:1;}
+header hgroup #lnb .InBox ul li:nth-of-type(2)             {width:40%;}
+header hgroup #lnb .InBox ul li a                          {padding:29px 0;font-size:16px;text-align:center;}
+header hgroup #lnb .InBox ul li.on a                       {color:#9c836a; border-bottom:2px solid #9c836a;font-weight:bold;}	
 
-hgroup .book                                        {position:absolute; width:140px; height:75px; background-color:#08121e; top:0; right:0;}
-hgroup .book a {display:block; font-size:16px; color:#fff; text-align: center; padding:30px 0;}
+header hgroup .book                                        {position:absolute; width:140px; height:75px; background-color:#08121e; top:0; right:0;}
+header hgroup .book a {display:block; font-size:16px; color:#fff; text-align: center; padding:30px 0;}
 
 nav                                                 {position:fixed;top:75px;left:0;width:100%;height:0;min-width:1000px;overflow:hidden;transition:0.5s;z-index:-1;}
 nav:before                                          {position:absolute;top:0;left:0;width:100%;height:calc(100% - 2px);content:"";display:block;opacity:0.85;z-index:1;}
@@ -284,7 +293,7 @@ header a,footer a 						    {display:block;}
 #index .list .img .i03	{background:url(http://gonylab4.speedgabia.com/suiteians/main/3.jpg) no-repeat 50% 50%;background-size:cover;}
 #index .list .img .i04	{background:url(http://gonylab4.speedgabia.com/suiteians/main/4.jpg) no-repeat 50% 50%;background-size:cover;}
 
-#index .restaurant {position:relative;width:100%;height:100%;overflow:hidden;min-width:860px;min-height:483px;}
+#index .restaurant {position:relative;width:100%;height:100%;overflow:hidden;}
 #index .restaurant h3 {display: block; text-align: center;}
 #index .restaurant h3 strong {display: block; font-size:50px;}
 #index .restaurant h3 span {display: block; font-size:17px; margin:25px 0 40px;}
@@ -308,20 +317,26 @@ header a,footer a 						    {display:block;}
 #index .video .ttl h3 {font-size:50px;text-align:center;}
 #index .video .ttl h3 strong {font-family:linotype-didot, serif;display:block;}
 #index .video .ttl h3 span {display:block;font-size:19px;padding:30px 0;}
-#index .video #iframe {max-width:1400px;min-width:1000px;margin:0 auto;display:block; position: absolute; top:250px; left:50%; transform:translateX(-50%); z-index:3;}
+#index .video #iframe {max-width:1400px;margin:0 auto;display:block; position: absolute; top:250px; left:50%; transform:translateX(-50%); z-index:3;}
 
 
 /*------------------------------------------------------------------------------------------------*/
-/* Video */
-#video #contents {padding:5% 0;}
-#video #contents div {width:97%;margin:0 auto;}
-#video #contents div iframe {width:100%;}
-
+/* media */
+#media .offers {margin-top:0; padding-top:5.5%; padding-bottom:5.5%;}
+#media .offers h3 {display:block; max-width:1300px; margin:0 auto; color:#333;}
+#media .offers h3 strong {display:block; text-align:center; font-weight:bold; font-size:30px; margin-bottom:10px;}
+#media .offers h3 span {display:block; text-align:center; font-size:17px; margin-bottom:50px;}
+#media .offers > ul {width:100%; overflow: hidden; height:100%; max-width:1300px; margin:30px auto; display:flex;}
+#media .offers > ul li {flex:1; margin:0 2.5%}
+#media .offers > ul li .txt {text-align:center; border:1px solid #eaeaea;}
+#media .offers > ul li .txt strong {display: block; font-weight:bold; font-size:17px; color:#333; padding:30px 0 20px; line-height:1.5;}
+#media .offers > ul li .txt span {display: block; font-size:15px; line-height:1.75;}
+#media .offers > ul li .txt a {display:block; background:none; width:fit-content; text-align:center; font-size:16px; margin:30px auto 20px; height:fit-content; border:1px solid #eaeaea; padding:15px 20px; height:fit-content;}
 
 /*------------------------------------------------------------------------------------------------*/
 /* Location */
 #location #contents {padding-top:3%;}
-#location .location h3 {position:relative;text-align:center;right:0;padding-bottom:3%;width:100%;height:30px;z-index:1;}
+#location .location h3 {position:relative;text-align:center;right:0;padding:6% 0 3%;width:100%;height:30px;z-index:1;}
 #location .location h3 strong {display: block; font-size:30px;font-family:athelas,serif; }
 #location .location {max-width:1200px;min-width:860px;padding-bottom:3%;margin:0 auto;overflow:hidden;}
 #location .location > div {width:90%;margin:0 auto; }
@@ -506,62 +521,128 @@ header a,footer a 						    {display:block;}
 #reserve .tab_02 .r_info_03 table {line-height:1.5em;margin-top:20px;}
 #reserve .tab_02 .r_info_03 table > thead {background:#f2f2f2;}
 
-/* ------------------------------------------------------------------------------------------------------- */
-/* index3.php */
-#index3 { background-color: #eeeeee; } 
-#index3 section { opacity: 0; } 
-#index3 header { opacity: 0; } 
-/* #index3 header #side { display: none; } */
-#index3 .section { padding-top:7.5%; margin: 0 auto; } 
 
-#index3 .intro { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; background: url(../images/intro.jpg) no-repeat center center; background-size: cover; } 
+@media(max-width:1024px) {
+ header {display:none;}   
+#header {display:block;}
+#header 											              {position:relative;width:100;;z-index:1000;}
+#header hgroup                                                   {position:relative;width:100%;}
+#header hgroup h1                                                {position:absolute;top:10px;left:50%; transform:translateX(-50%);}
+#header hgroup ul                                                {position:absolute;top:10px;right:10px;}
+#header hgroup ul li                                             {float:left;}
+#header hgroup ul li:nth-child(1)                                {padding:5px 0;}
+#header hgroup ul li:nth-child(2)                                {padding:5px 0;}
+#header hgroup ul li:nth-child(3)                                {padding:0 10px;margin-left:10px;}
 
-#index3 .Swipers { max-width:100%!important; height: 100vh; overflow:hidden; padding-top: 0; } 
-#index3 .Swipers .swiper { width: 100%; height: 100%; } 
-#index3 .Swipers .swiper-view { max-width:1400px; margin:0 auto; } 
-#index3 .Swipers .swiper-container { height:100%; overflow:hidden; } 
-#index3 .Swipers .swiper-slide>a { display: block; width:100%; height:100%; background-position:50% 50%; background-repeat:no-repeat; background-size:cover; } 
-#index3 .Swipers .swiper-btn { position:absolute; width:60px; height:90px; z-index:10; cursor:pointer; color:#fff; font-size:24px; padding: 3px; paddingbackground-size: contain; background-repeat: no-repeat; background-position: center center; } 
-#index3 .Swipers .swiper-btn.swiper-button-prev { left:80px; background-image: url(../images/prev_btn.png); } 
-#index3 .Swipers .swiper-btn.swiper-button-next { right:80px; background-image: url(../images/next_btn.png); } 
-#index3 .Swipers .swiper-pagination { width: 100%; bottom:3.5%; left:0; z-index:3; } 
-#index3 .Swipers .swiper-pagination-bullet { display:inline-block; width:12px; height:12px; background-color:#333; border-radius:50%; } 
-#index3 .Swipers .swiper-pagination-bullet-active { background-color:#fff; } 
-#index3 .Swipers .swiper-btn:hover { opacity:1; } 
-#index3 .Swipers .link_event { position: absolute; bottom: 50px; right: 100px; border: 1px solid #fff; padding: 10px 30px; color: #fff; z-index: 100; } 
+#nav                                                             {position:fixed;top:-100%;width:100%;height:100%;z-index:100;}
+#nav                                                             {transition:0.7s;overflow:hidden;overflow-y:scroll;opacity:0;}
+#nav .InBox														{position:relative;top:0;left:0;width:100%;height:100%;overflow:hidden;}/* overflow-y:scroll; */
+#nav .InBox > div                                                {position:relative;height:100%;float:left;}
+#nav .InBox > div.gnv											{width:40%;background:#9c836a;}
+#nav .InBox > div.gnv > .menu                                    {width:100%;height:100%;}
+#nav .InBox > div.gnv > .menu > div                              {position:relative;padding:25% 0 0 10%;width:90%;background:#9c836a;}
+#nav .InBox > div.gnv > .menu > div .side                        {width:90%;margin:0 auto 20%;}
+#nav .InBox > div.gnv > .menu > div .side a                      {color:#fff;display:block;font-size:18px;line-height:1.5;margin-bottom:3%;transition:0.3s;}
+#nav .InBox > div.gnv > .menu > div ul                           {width:85%;margin:0 auto;}
+#nav .InBox > div.gnv > .menu > div ul li                        {line-height:4.5}
+#nav .InBox > div.gnv > .menu > div ul li a                      {color:#fff;display:block;transition:0.3s;letter-spacing:1px;font-size:15px;}
+#nav .InBox > div.gnv > .menu > div ul li.on a                   {color:#fff;}
 
-#index3 .video { padding:0; } 
-#index3 .video h2 { position:absolute; top:50%; left:50%; margin:-50px 0 0 -300px; z-index:10; } 
+#nav .InBox > div.gnb											{width:60%;}
+#nav .InBox > div.gnb > div                                      {position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;z-index:0;}
+#nav .InBox > div.gnb > div > div.nv                             {position:relative;width:100%;height:100%;z-index:1;}
+#nav .InBox > div.gnb > div > div.nv > div                       {width:80%;transform:translateY(0%);opacity:1;}
+#nav .InBox > div.gnb > .gb00                                    {opacity:1;z-index:10;}	
+#nav .InBox > div.gnb > .gb00 img								{position:absolute;top:50%;left:50%;margin:-68px 0 0 -140px;z-index:5;}
+#nav .InBox > div.gnb > .GnbRoom div.nv > div                    {margin:0 auto;padding-top:25%;height:70%;}
+#nav .InBox > div.gnb > .GnbRoom div.nv > div h3                 {color:#c19a5a;margin-bottom:15%;font-family:linotype-didot, serif;letter-spacing:1px;font-size:25px;}
+#nav .InBox > div.gnb > .GnbRoom div.nv > div > ul               {width:100%;}
+#nav .InBox > div.gnb > .GnbRoom div.nv > div > ul > li          {width:100%;}
+#nav .InBox > div.gnb > .GnbRoom div.nv > div > ul > li > a      {font-size:20px;line-height:2.5;margin-bottom:1%;color:#c19a5a;}
+#nav .InBox > div.gnb > .GnbRoom div.nv > div > ul > li > a img	{position:relative;top:-5px;margin-left:5px;}
+#nav .InBox > div.gnb > .GnbRoom div.nv > div > ul > li	ul      {width:95%;height:0;margin:0 auto;padding-bottom:5%;overflow:hidden;opacity:0;transition:0.5s;}
+#nav .InBox > div.gnb > .GnbRoom div.nv > div > ul > li	ul li   {line-height:1.8;margin:5px 0;}
+#nav .InBox > div.gnb > .GnbRoom div.nv > div > ul > li	ul li a {color:#fff;font-size:17.5px;padding:5px 0;}
 
-#index3 .text { text-align: center; padding: 100px 0; } 
-#index3 .text1 img { width: 860px;} 
-#index3 .text2 img { width: 860px;} 
-#index3 .text3 img { width: 828px;} 
+#nav .InBox > div.gnb > div.GnbNav > div.nv > div 				{position:absolute;top:45%;left:10%;}
+#nav .InBox > div.gnb > div.GnbNav > div.nv > div h3             {color:#c19a5a;margin-bottom:15%;font-family:linotype-didot, serif;letter-spacing:1px;font-size:25px;}
+#nav .InBox > div.gnb > div.GnbNav > div.nv > div > ul           {width:100%;}
+#nav .InBox > div.gnb > div.GnbNav > div.nv > div > ul > li      {line-height:2;padding:2.5px 0;margin-bottom:5px;}
+#nav .InBox > div.gnb > div.GnbNav > div.nv > div > ul > li a    {color:#fff;font-size:19px;}		
 
-#index3 .details { max-width: 1920px; min-width: 1000px; display: flex; padding: 0; } 
-#index3 .details .item { position: relative; flex-grow: 1; cursor: pointer; overflow: hidden; } 
-#index3 .details .item:nth-child(2) { margin-top: 200px; } 
-#index3 .details .item .photo { position: absolute; width: 100%; height: 100%; top: 0; left: 0; transition: 0.7s; } 
-#index3 .details .item .photo::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); transition: 0.5s; opacity: 1; } 
-#index3 .details .item:nth-child(1) .photo { background: url(http://gonylab4.speedgabia.com/suiteians/room/1/1/2.jpg) no-repeat center center; background-size: cover; } 
-#index3 .details .item:nth-child(2) .photo { background: url(http://gonylab4.speedgabia.com/suiteians/main/sp/2.jpg) no-repeat center center; background-size: cover; } 
-#index3 .details .item .heading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; opacity: 1; transition: 0.5s; } 
-#index3 .details .item .heading h1 { color: #fff; font-size: 40px; margin-bottom: 25px; letter-spacing: 2px; } 
-#index3 .details .item .heading p { color: #fff; font-size: 20px; } 
-#index3 .details .item:hover .photo { transform: scale(1.03); } 
-#index3 .details .item:hover .photo::before { opacity: 0; } 
-#index3 .details .item:hover .heading { opacity: 0; } 
+#header .gnb > div div.bg                                        {position:absolute;top:0;left:0;width:100%;height:100%;}
+#header .gnb > div div.bg:before                                 {position:absolute;top:0;left:0;width:100%;height:100%;content:"";background:#9c836a;opacity:0.8;display:block;}	
+#header .gnb > .close                                            {position:absolute;top:3%;right:3%;z-index:10;}
 
-#index3 .facility { max-width: 1920px; min-width: 1000px; display: flex; padding: 0; padding-bottom: 10px; } 
-#index3 .facility .item { position: relative; flex-grow: 1; cursor: pointer; height: 890px; overflow: hidden; margin-right: 10px; } 
-#index3 .facility .item:last-child { margin-right: 0; } 
-#index3 .facility .item .photo { position: absolute; width: 100%; height: 100%; top: 0; left: 0; transition: 0.7s; } 
-#index3 .facility .item .photo::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); transition: 0.5s; opacity: 1; } 
-#index3 .facility .item:nth-child(1) .photo { background: url(http://gonylab4.speedgabia.com/suiteians/location/5.jpg) no-repeat center center; background-size: cover; background-position-x: -300px; } 
-#index3 .facility .item:nth-child(2) .photo { background: url(http://gonylab4.speedgabia.com/suiteians/food/1.jpg) no-repeat center center; background-size: cover; background-position-x: -250px; } 
-#index3 .facility .item:nth-child(3) .photo { background: url(http://gonylab4.speedgabia.com/suiteians/m/facility/3/1.jpg) no-repeat center center; background-size: cover; } 
-#index3 .facility .item .heading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; opacity: 1; transition: 0.5s; } 
-#index3 .facility .item h1 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 40px; margin-bottom: 25px; text-align: center; line-height: 1.4em; opacity: 1; transition: 0.5s; letter-spacing: 2px; } 
-#index3 .facility .item:hover .photo { transform: scale(1.03); } 
-#index3 .facility .item:hover .photo::before { opacity: 0; } 
-#index3 .facility .item:hover h1 { opacity: 0; } 
+#nav div.event	                                                {width:100%;padding:50px 0;background:#20332f;}
+#nav div.event div h3                                            {text-align:center;margin-bottom:3%;}
+#nav div.event div h3 strong                                     {display:block;color:#9a825a;font-family:linotype-didot, serif;font-size:20px;}
+#nav div.event div h3 span                                       {display:block;color:#e8e8e8;font-size:15px;margin:5px 0 15px;}
+#nav div.event div ul                                            {width:95%;padding:0 15px;margin:0 auto;overflow:hidden;}
+#nav div.event div ul li 							            {width:48%;float:left;margin:0 1%;}
+
+.Swipers .InBox {height:75vh;}
+
+footer .ft_top {display:none;}
+footer .inner {padding:0;}
+footer .inner .ft_img {display:none;}
+footer .inner ul li span {font-size:14px; display:block; margin-top:15px;}
+footer .inner .ft_info1 {margin:40px 10px;}
+footer .inner .ft_info2 {margin:65px 10px 40px 10px;}
+footer .wrap {border-bottom:none;}
+footer .ft_bottom .icons {display:block;}
+footer .ft_bottom .icons span {display:block; flex:none; margin-left:15px; padding-top:10px;}
+footer .ft_bottom .icons a {float:left; margin:0 6px;}
+footer .ft_bottom .ft_resv {float:right; width:fit-content; padding:52px 30px;}
+footer .ft_bottom .ft_resv span {text-align:left; display:block;}
+footer .ft_bottom .ft_resv a {margin-top:30px;}
+footer .ft_bottom .copyright {clear:both;}
+}
+
+@media(max-width:768px) {
+    #index .offers h3 strong {display:block; text-align: center;}
+    #index .offers h3 span {display:block; text-align: center; margin:25px 0;}
+    #index .offers ul li:last-child {display:none;}
+    #index .offers ul li .txt strong {font-size:15px;}
+    #index .offers ul li .txt span {font-size:13px;}
+    #index .offers ul li .txt a {font-size:14px;}
+    
+    #index .restaurant h3 strong {font-size:28px;}
+    #index .restaurant h3 span {font-size:15px;}
+
+    #index .restaurant .Swipers {max-width:95vw; margin:0 auto;}
+    #index .restaurant .swiper-view .InBox {height:50vh;}
+    #index .restaurant .swiper-container .title {right:20px;}
+    #index .restaurant .swiper-container .title span {font-size:14px;}
+    #index .restaurant .swiper-container .title a {font-size:10.5px;}
+    #index .restaurant .Swipers .swiper-views .swiper-slide:first-of-type div::before {content:""; position: absolute; width:100%; height:100%; top:0; left:0; background:#000; opacity:0.67;}
+
+    #index .video .ttl h3 {font-size:27.5px;}
+    #index .video .ttl h3 span {font-size:16px;}
+    #index .video #iframe {width:90%; height:300px;}
+
+    #index .list {height:700px;}
+    #index .list .img {position:relative;width:100%;height:100%;}
+    #index .list .img div {position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;opacity:0;}
+    #index .list .img div:before {position:absolute;left:0;top:0;width:100%;height:100%;content:"";background:#000;opacity:0.3;}
+    #index .list ul {position:absolute;width:100%;height:calc(100% - 75px);overflow:hidden;z-index:2;}
+    #index .list ul li {position:relative;float:left;width:100%;height:25%;}
+    #index .list ul li a {position:absolute;top:50%;left:0;width:100%;height:240px;margin-top:-120px;text-align:center;display:block;overflow:hidden;}
+    #index .list ul li a strong {font-size:30px;font-family:linotype-didot;display:block;color:#fff;margin-top:105px;transition: 0.5s;}
+    #index .list ul li a div {width:80px;height:1px;background:#e8e8e8;margin:25px auto;opacity:0;transition: 0.5s;}
+    #index .list ul li a span {font-size:17px;line-height:1.8;display:block;color:#fff;opacity:0;transition: 0.5s;}
+    #index .list ul li a b {font-size:15px;display:inline-block;color:#fff;margin-top:10px;padding:5px 10px;letter-spacing:1px;}
+    #index .list ul li a.active strong {font-size:40px;margin:0;}
+    #index .list ul li a.active div {opacity:1;}
+    #index .list ul li a.active span {opacity:1;}
+
+    #index .list h3 {transform:unset; position: relative; font-size:25px; width:fit-content; height:fit-content; display:block; top:25px; left:30px; margin-bottom:20px;}
+}
+
+@media(max-width:680px) { 
+
+}
+
+@media(max-width:360px) {
+
+}
