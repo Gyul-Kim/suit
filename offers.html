@@ -28,7 +28,20 @@ $(function() {
 	<? } ?>
 });
 </script>
-		
+
+<script type="text/javascript">
+$(function(){
+
+	<? if($_GET['num']=='01'){ ?>
+		$(".thumb iframe").attr("src","/board/bbs/board.php?bo_table=offers&wr_id=34");	
+	<? }else if($_GET['num']=='02'){ ?>
+		$(".thumb iframe").attr("src","/board/bbs/board.php?bo_table=offers&wr_id=33");
+	<? }else if($_GET['num']=='03'){ ?>
+		$(".thumb iframe").attr("src","/board/bbs/board.php?bo_table=offers&wr_id=26");			
+	<? }?>
+	
+});
+</script>
 <!-- analytics -->
 <? include "analytics.html" ?>
 <!-- //analytics -->
@@ -57,7 +70,11 @@ $(function() {
 				
 				<div class="thumb">
 					<h3><strong>스페셜오퍼</strong><span>스위티안 호텔의 스페셜오퍼를 확인해보세요.</span></h3>
-					<iframe src="/board/bbs/board.php?bo_table=offers" width='100%' height='1200' frameborder=0></iframe>
+					<iframe src="/board/bbs/board.php?bo_table=offers" width='100%' height='1200' frameborder='0'></iframe>
+				</div>
+
+				<div class="wrap">
+					<? include "package/swiper.php" ?>
 				</div>
 			</div>
 		</div>

@@ -3,6 +3,10 @@ $(document).bind("contextmenu",function(e){return false;});
 $(document).bind("ondragstart",function(e){return false;});
 $(document).bind("onselectstart",function(e){return false;}); 
 
+const isMobile = () => { 
+	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+  };
+
 /* ------------------------------------------------------------------------------- */
 /* 실시간예약 - 계정정보 */
 var rv_ttl = "suiteian";
@@ -12,7 +16,8 @@ var type = "Y";
 
 /* 이미지,영상 - 경로 */
 var vid = "http://gonylabvid03.speedgabia.com/suiteian";
-var url = "http://gonylab4.speedgabia.com/suiteians";
+const url =  isMobile() && window.innerWidth <=768 ? 'http://gonylab4.speedgabia.com/suiteians/m' : 'http://gonylab4.speedgabia.com/suiteians';
+
 
 /* 영상 */
 var mov = [

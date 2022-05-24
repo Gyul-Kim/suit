@@ -27,7 +27,8 @@ var val = num.slice(0, 2); val = val - 1;
 var m = location.href.substr(location.href.lastIndexOf('=') + 1);			//해당페이지 영역
 var v = m.slice(0, 2); v = (v - 1) + 1;	
 var k = val;
-let path = (location.href.substr(location.href.lastIndexOf("/") + 1)).split(".")[0]; 	//path
+const path = (location.href.substr(location.href.lastIndexOf("/") + 1)).split(".")[0];
+const detailPath = ((location.href.substr(location.href.lastIndexOf("=") + 1)).slice(0, 2) - 1 + 1) - 1; 
 
 
 /*---------------------------------------------------------------*/	
@@ -292,7 +293,7 @@ switch(path){
 	$.getJSON('http://digitalnow.co.kr/reserve/pensionInfo/'+ rv_ttl +'/8',
 	function(data){
 	
-		$("body").addClass("room_" + m);
+		$("body").addClass("rooms_" + numbering(detailPath));
 		var z = v - 1;
 
 		var arr1 = new Array();
@@ -401,112 +402,7 @@ switch(path){
 	});
 
 break;
-/*---------------------------------------------------------------*/
-case 'fpv' :
 
-	$.getJSON('http://digitalnow.co.kr/reserve/pensionInfo/'+ rv_ttl +'/12',
-	function(data){
-		
-		//Order Number Sort
-		var facilityList = new Array();
-		for (var i = 0; i < data.result.length; i++) {
-			for (var j = 0; j < data.result.length; j++) {
-				if (Number(data.result[j]["ORDER_NUM"]) - 1 === i){
-					facilityList.push(data.result[j]);
-				}
-			}
-		}
-
-		$("#banner").prepend('<h2><img src="images/fpv_ttl.png" alt="" width="605" height="150" /></h2>');
-		for(var i = 0; i < facilityList.length; i++){
-			if(i%2 == 0){
-				$(".special").append(
-					'<div class="s'+ numbering(i) +'">' +
-						'<div class="txt">' +
-							'<div class="InBox">' +
-								'<h3>'+ facilityList[i]["TITLE_EN"] +'</h3>' +
-								'<p>'+ facilityList[i]["CONTENT"] +'</p>' +
-								'<a href="facility.html?num='+ numbering(i) +'" class="btn">' +
-									'<div class="back"></div>' +
-									'<div class="mask"><div><span>VIEW DETAIL</span><span>VIEW DETAIL</span></div></div>' +
-								'</a>' +
-							'</div>' +
-						'</div>' +
-						'<div class="img"><img src="http://gonylab4.speedgabia.com/suiteians/facility/'+ (i + 1) +'/1.jpg" alt="" width="100%" height="auto" /></div>' +
-					'</div>'
-				);
-			}else{
-				$(".special").append(
-					'<div class="s'+ numbering(i) +'">' +
-						'<div class="img"><img src="http://gonylab4.speedgabia.com/suiteians/facility/'+ (i + 1) +'/1.jpg" alt="" width="100%" height="auto" /></div>' +
-						'<div class="txt">' +
-							'<div class="InBox">' +
-								'<h3>'+ facilityList[i]["TITLE_EN"] +'</h3>' +
-								'<p>'+ facilityList[i]["CONTENT"] +'</p>' +
-								'<a href="facility.html?num='+ numbering(i) +'" class="btn">' +
-									'<div class="back"></div>' +
-									'<div class="mask"><div><span>VIEW DETAIL</span><span>VIEW DETAIL</span></div></div>' +
-								'</a>' +
-							'</div>' +
-						'</div>' +
-					'</div>'
-				);
-			}	
-		}
-		
-		$(window).on("scroll",function(e){
-			var d = $(window).scrollTop();
-			var f = $(".special > div").eq(0).offset().top - $(".special > div").height();
-			var g = $(".special > div").eq(1).offset().top - $(".special > div").height();
-			var h = $(".special > div").eq(2).offset().top - $(".special > div").height();
-		
-
-			if(d > f){
-				$(".special > div").eq(0).find(".txt").css({"left":"0%","opacity":"1"});
-				$(".special > div").eq(0).find(".img").css({"right":"0%","opacity":"1"});
-			}else{
-				$(".special > div").eq(0).find(".txt").css({"left":"-5%","opacity":"0"});
-				$(".special > div").eq(0).find(".img").css({"right":"-5%","opacity":"0"});
-			}
-			
-			if(d > g){
-				$(".special > div").eq(1).find(".txt").css({"right":"0%","opacity":"1"});
-				$(".special > div").eq(1).find(".img").css({"left":"0%","opacity":"1"});
-			}else{
-				$(".special > div").eq(1).find(".txt").css({"right":"-5%","opacity":"0"});
-				$(".special > div").eq(1).find(".img").css({"left":"-5%","opacity":"0"});
-			}
-			
-			if(d > h){
-				$(".special > div").eq(2).find(".txt").css({"left":"0%","opacity":"1"});
-				$(".special > div").eq(2).find(".img").css({"right":"0%","opacity":"1"});
-			}else{
-				$(".special > div").eq(2).find(".txt").css({"left":"-5%","opacity":"0"});
-				$(".special > div").eq(2).find(".img").css({"right":"-5%","opacity":"0"});
-			}
-
-			return false;
-		});
-
-		$(".special > div").each(function(e){
-			
-			if(e%2 == 1) {
-				$(this).find(".txt").css("text-align","right");
-				$(this).find(".txt a.btn").css("float","right");
-				
-				$(this).find(" > .txt").css("right","-5%");
-				$(this).find(" > .img").css("left","-5%");
-				
-			}else{
-				$(this).find(" > .txt").css("left","-5%");
-				$(this).find(" > .img").css("right","-5%");
-			}
-
-		});
-	
-	});
-	
-break;
 /*---------------------------------------------------------------*/
 	//special Page
 	case 'facility' :
@@ -622,10 +518,6 @@ break;
 								'<li>' +
 									'<strong>Reservation</strong>' +
 									'<p>' + serviceList[0]["CONTENT1"] + '</p>' +
-								'</li>' +
-								'<li>' +
-									'<strong>Press (SNS Channel)</strong>' +
-									'<p>' + serviceList[0]["CONTENT2"] + '</p>' +
 								'</li>' +
 							'</ul>' +
 						'</div>' +
@@ -824,4 +716,6 @@ function Swipers4(value, view, center, Between, boolean){
 		autoplayDisableOnInteraction: true,
 	});
 }
+
+
 
