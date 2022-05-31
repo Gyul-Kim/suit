@@ -516,7 +516,8 @@ body #package .swiper .swiper-pagination-bullet 		{width:10px;height:3px;display
 body #package .swiper .swiper-pagination-bullet 		{background:url(/package/images/p_off.jpg) no-repeat left top;}
 body #package .swiper .swiper-pagination-bullet-active{background:url(/package/images/p_on.jpg) no-repeat left top;}	
 
-body #package .swiper .swiper-buttons {position:absolute; bottom:5px; left:58%; transform:translateX(-61%); z-index:300; width:142px; height:70px;}
+/* body #package .swiper .swiper-buttons {position:absolute; bottom:5px; left:58%; transform:translateX(-61%); z-index:300; width:142px; height:70px;} */
+body #package .swiper .swiper-buttons {position:absolute; bottom:5px; left:auto; right: 0; transform: none; z-index:300; width:142px; height:70px;}
 body #package .swiper .s-btn 							{width:70px;height:70px;z-index:10;cursor:pointer;}
 body #package .swiper .s-btn 							{background-size:contain;background-position:center;background-repeat:no-repeat;}
 body #package .swiper .swiper-button-prev 			{background-image:url(../images/p_prev.png);left:0px;margin:0;}
@@ -526,7 +527,7 @@ body #package .swiper-slide {opacity:0; transition:1.35s;}
 body #package .swiper-slide-active {opacity:1;}
 
 
-
+#index #package { padding-top: 0; }
 
 
 

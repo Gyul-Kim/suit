@@ -40,6 +40,23 @@ include_once("./board/lib/latest.lib.php");
 	<? include "header.html" ?>		
 	<? include "gnb.html" ?>		
 	<section>
+
+    <script type="text/javascript">
+      $(function(){
+        $(".popup .close").click(function(){$(this).parent(".popup").remove(); return false;});
+      });
+      </script>
+      <style type="text/css">
+      .popup1 {position:absolute;top:100px;right:40px;z-index:150;}
+      .popup2 {position:absolute;top:100px;right:40px;z-index:150;}
+      .close {position:absolute;top:0;right:0;}
+      
+      </style>
+      <div class="popup1 popup">
+        <a href="offers.html"><img src="http://gonylab4.speedgabia.com/suiteians/pop/pop_1.jpg" alt="" width="350" height="auto" /></a>
+        <a href="#" class="close"><img src="http://gonylab2.speedgabia.com/common/close.png" alt="닫기" width="50" height="35" /></a>
+      </div>
+
 		<div class="section visual">
             <div class="Swipers">
                 <div class="swiper-view">
@@ -55,38 +72,51 @@ include_once("./board/lib/latest.lib.php");
                 </div>
             </div>
             <!-- <div class="visual_bg"></div> -->
-        </div>		
+    </div>		
+
 		<div class="section offers" id="contents">
 			<h3><strong>스페셜 오퍼</strong><span>생각 밖의 선물, 스위티안 호텔</span></h3>
 			<ul>
 				<li>
-					<div class="img"><img src="http://gonylab4.speedgabia.com/suiteians/food/1.jpg" alt="" width="100%" height="auto"></div>
+					<div class="img"><img src="http://gonylab4.speedgabia.com/suiteians/offer/1.jpg" alt="" width="100%" height="auto"></div>
 					<div class="txt">
-						<strong>얼리버드 7월, <br> 인원추가 무료 깜짝 이벤트 ♥</strong>
-						<span>객실 & 조식 & 트니트니 어드벤처 & <br>
-							키즈잼 자유놀이 & 보팅</span>
+						<!-- <strong>얼리버드 7월, <br> 인원추가 무료 깜짝 이벤트 ♥</strong> -->
+						<!-- <span>객실 & 조식 & 트니트니 어드벤처 & <br>
+							키즈잼 자유놀이 & 보팅</span> -->
 						<a href="offers.html?num=01">+ READ MORE</a>
 					</div>
 				</li>
 				<li>
-					<div class="img"><img src="http://gonylab4.speedgabia.com/suiteians/food/2.jpg" alt="" width="100%" height="auto"></div>
+					<div class="img"><img src="http://gonylab4.speedgabia.com/suiteians/offer/2.jpg" alt="" width="100%" height="auto"></div>
 					<div class="txt">
-						<strong>핫썸머, 5-6월 가평호캉스 <br> 단독프로모션 FULL 패키지♥</strong>
-						<span>객실 & 조식 & 트니트니 어드벤처 & <br>
-							키즈잼 자유놀이 & 보팅</span>
+						<!-- <strong>핫썸머, 5-6월 가평호캉스 <br> 단독프로모션 FULL 패키지♥</strong> -->
+						<!-- <span>객실 & 조식 & 트니트니 어드벤처 & <br>
+							키즈잼 자유놀이 & 보팅</span> -->
 						<a href="offers.html?num=02">+ READ MORE</a>
 					</div>
 				</li>
 				<li>
-					<div class="img"><img src="http://gonylab4.speedgabia.com/suiteians/food/3.jpg" alt="" width="100%" height="auto"></div>
+					<div class="img"><img src="http://gonylab4.speedgabia.com/suiteians/offer/3.jpg" alt="" width="100%" height="auto"></div>
 					<div class="txt">
 						<strong>호텔 스위티안 이용권</strong>
-						<span>객실 & 조식 & 트니트니 어드벤처 & <br>
-							키즈잼 자유놀이 & 보팅</span>
+						<!-- <span>객실 & 조식 & 트니트니 어드벤처 & <br>
+							키즈잼 자유놀이 & 보팅</span> -->
 						<a href="offers.html?num=03">+ READ MORE</a>
 					</div>
 				</li>
 			</ul>
+		</div>
+    
+    <div class="section" id="contents" style="margin-top: 0; margin-bottom: 0;">
+      <!-- <h3>
+        <strong>바우처</strong>
+        <span>생각 밖의 선물, 스위티안 호텔</span>
+      </h3> -->
+			<div class="InnerBox">
+				<div class="wrap">
+					<? include "package/swiper.php" ?>
+				</div>
+			</div>
 		</div>
 
 		<!-- <div class="section list">
@@ -124,7 +154,7 @@ include_once("./board/lib/latest.lib.php");
             </div>
 		</div> -->
 
-		<div class="section video">
+		<div class="section video" style="margin-top: 0;">
 			<div class="ttl">
 				<h3>
 					<strong>품격있는 스위티안 호텔</strong>

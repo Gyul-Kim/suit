@@ -36,13 +36,13 @@ const detailPath = ((location.href.substr(location.href.lastIndexOf("=") + 1)).s
 $("#lnb .InBox ul li, #IdxMenu .lnb .InBox ul li, header > nav > div").hover(function(){
 	var i = $(this).index();
 	$("#lnb .InBox ul li").removeClass("on");
-	$("#lnb .InBox ul li").eq(i).addClass("on");
+	// $("#lnb .InBox ul li").eq(i).addClass("on");
 	$("#IdxMenu .lnb .InBox ul li").removeClass("on");
-	$("#IdxMenu .lnb .InBox ul li").eq(i).addClass("on");
+	// $("#IdxMenu .lnb .InBox ul li").eq(i).addClass("on");
 
-	$("header > nav").css({"height":"380px"});
-	$("header > nav > div").css({"opacity":"0","z-index":"1"});
-	$("header > nav > div").eq(i).css({"opacity":"1","z-index":"2"});
+	$("header > nav").css({"height":"500px"});
+	$("header > nav > div").css({"opacity":"1","z-index":"1"});
+	// $("header > nav > div").eq(i).css({"opacity":"1","z-index":"2"});
 });	
 
 $("#lnb, #IdxMenu, header > nav").mouseleave(function(){
@@ -327,13 +327,11 @@ switch(path){
 		for(var a = 0; a < arr4.length; a++){
 			var h = arr4[a]; arr5.push(h);
 		}
-    // console.log(arr5, h, data.result[nmb[z]]);
 
-		$("#banner").prepend('<h2><img src="images/room_ttl_'+ numbering(z) +'.png" alt="" width="800" height="200" /></h2>');
-		$("#contents .txt").append('<span>SUMMARY</span><p>'+ data.result[arr5[z]]["TYPE_CONTENT"] +'</p>');	
+		$("#banner").prepend('<h2>ACCOMMODATION</h2>');
+		$("#contents .txt").append('<span>' + data.result[arr5[z]]["TYPE_DESC"]  +'</span><p>'+ data.result[arr5[z]]["TYPE_CONTENT"] +'</p>');
 
 		for(var a = 0; a < img[2][z].length; a++){
-			
 			$("section .InnerBox").append(
 				'<div class="slides" id="room_'+ numbering(a) +'">' +
 					'<div class="slide slide_02"><ul class="slide_show"></ul></div>' +
@@ -440,8 +438,8 @@ break;
 			}
 		}
 
-		$(".section").eq(0).prepend('<h2><img src="images/facil_ttl_'+ numbering(z) +'.png" alt="" width="800" height="200" /></h2>');
-		$("#contents .txt").append('<span>SUMMARY</span><p>'+ facilityList[z]["CONTENT1"] +'</p>');	
+		$(".section").eq(0).prepend('<h2>SPECIAL</h2>');
+		$("#contents .txt").append('<span>' + facilityList[z]["TITLE_EN"]  + '</span><p>'+ facilityList[z]["CONTENT1"] +'</p>');	
 		$("section .InnerBox").append(
 			'<div class="slides" id="slides">' +
 				'<div class="slide slide_02">' +
@@ -496,7 +494,7 @@ break;
 			}
 		}
 
-		$(".section").eq(0).prepend('<h2><img src="images/food_ttl_01.png" alt="" width="800" height="200" /></h2>');
+		$(".section").eq(0).prepend('<h2>SUITEIAN RESTAURANT</h2>');
 		$("section .InnerBox").append(
 			'<div class="slides" id="slides">' +
 						
@@ -592,6 +590,15 @@ break;
 		}
 		return false;
 	});
+
+break;
+
+/*---------------------------------------------------------------*/
+
+	//voucher Page
+	case 'voucher' :
+
+	$("#banner").prepend('<h2><img src="images/off_ttl_02.png" alt="" width="450" height="150" /></h2>');
 
 break;
 
